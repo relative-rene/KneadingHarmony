@@ -1,0 +1,23 @@
+<h1>Listing Users</h1>
+
+<table>
+  <tr>
+    <th>First_name</th>
+    <th>last_name</th>
+    <th>email</th>
+    <th>password_digest</th>
+    <th>phone_number</th>
+    <th>credit_card</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.password_digest %></td>
+      <td><%= user.phone_number %></td>
+      <td><%= user.credit_card %></td>
+    </tr>
+  <% end %>
+</table>
