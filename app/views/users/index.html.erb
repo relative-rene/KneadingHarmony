@@ -8,6 +8,7 @@
     <th>password_digest</th>
     <th>phone_number</th>
     <th>credit_card</th>
+    <th colspan="2"></th>
   </tr>
 
   <% @users.each do |user| %>
@@ -18,6 +19,8 @@
       <td><%= user.password_digest %></td>
       <td><%= user.phone_number %></td>
       <td><%= user.credit_card %></td>
+      <td><%= link_to 'Show', user_path(user) %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
     </tr>
   <% end %>
 </table>
