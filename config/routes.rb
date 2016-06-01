@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+
+  resource :calendar, only [:show], controller: :calendar
+  get 'calendar#show'
+end 
   resources :users do
     resources :appointments
-  end
+
   get 'welcome/index'
 
   root 'welcome#index'
