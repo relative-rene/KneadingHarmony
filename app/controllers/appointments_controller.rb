@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
-    @appointment = @user.appointments.create(appointment_params)
+    @appointment = @user.appointments.create(appointment_params).valid?
     redirect_to user_path(@user)
   end
 
@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
 
   private
     def appointment_params
-      params.require(:appointment).permit(:service, :date)
+      params.require(:appointment).permit(:time_slot_id, :day).merge(user_id: current_user.id)
     end
 
 end
