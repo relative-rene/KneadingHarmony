@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates :email, :password_digest, :phone_number, :credit_card, presence: true, uniqueness:true
 
   def valid?
-    taken = where("start <= ? AND end >= ?", start, end)
+    taken = where(day: day, time_slot_id: time_slot_id)
     save unless taken
   end
 end
