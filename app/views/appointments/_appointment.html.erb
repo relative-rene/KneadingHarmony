@@ -6,3 +6,7 @@
   <strong>Date:</strong>
   <%= appointment.date %>
 </p>
+
+<p>
+  <%= link_to 'Destroy Comment', [appointment.user, appointment], method: :delete, data: { confirm: 'Are you sure? Clients will be billed in accordance with the service aggreement'} %>
+</p>
