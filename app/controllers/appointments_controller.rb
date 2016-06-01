@@ -1,7 +1,18 @@
 class AppointmentsController < ApplicationController
   def create
+    Time.zone = appointment_params[:time_zone]
     @user = User.find(params[:user_id])
     @appointment = @user.appointments.create(appointment_params).valid?
+
+    respond_to do |format|
+      if @appointment.save
+        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
+        format.json { render :show, status: :created, location: @appointment }
+      else
+        format.html { render :new }
+        format.json { render json: @appointment.errors, status: :unprocessable_entity }
+      end
+    end
     redirect_to user_path(@user)
   end
 
