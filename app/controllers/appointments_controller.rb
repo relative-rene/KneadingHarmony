@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :logged_in?
   def create
     Time.zone = appointment_params[:time_zone]
     @user = User.find(params[:user_id])
