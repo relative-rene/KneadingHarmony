@@ -1,3 +1,24 @@
 // Place all the styles related to the Services controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.thumbnail {
+        position: relative;
+        padding: 0px;
+        margin-bottom: 20px;
+    }
+
+        .thumbnail:hover {
+            background-color: #5CB85C;
+        }
+
+    .votes {
+        font-size: 47px;
+        color: #197BB5;
+        padding: 10px;
+    }
+
+    .thumbnail img {
+        width: 100%;
+    }
