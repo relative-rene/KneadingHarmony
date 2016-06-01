@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.confirm(user_params)
+    @user = User.confirm(params)
     if @user
       login(@user)
       flash[:notice] = "Successfully logged in."
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    user_params = params.require(:user).permit(:email, :password)
+    params = params.require(:user).permit(:email, :password)
   end
 
 end
