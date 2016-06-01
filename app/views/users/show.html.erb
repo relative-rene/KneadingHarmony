@@ -1,11 +1,8 @@
-<p>
-  <strong>First Name:</strong>
-  <%= @user.first_name %>
-</p>
+<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Last Name:</strong>
-  <%= @user.last_name %>
+  <strong>Name:</strong>
+  <%= @user.name %>
 </p>
 
 <p>
@@ -14,25 +11,9 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
+  <strong>Login:</strong>
+  <%= @user.login %>
 </p>
-
-<p>
-  <strong>Phone Number:</strong>
-  <%= @user.phone_number %>
-</p>
-
-<p>
-  <strong>Credit Card:</strong>
-  <%= @user.credit_card %>
-</p>
-
-<h2>Appointment:</h2>
-<%= render @user.appointments %>
-
-<h2>Schedule an appointment:</h2>
-<%= render 'appointments/form' %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
