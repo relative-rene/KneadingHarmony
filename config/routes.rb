@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   get "/policy", to: "policy#show", as: "policy"
 
   #Services
-  get "/services", to: "services#show", as: "services"
+  get "/services", to: "services#index", as: "services"
 
-
+  #calendar
+  get "/calendar", to: "calendar#show", as: "calendar"
 
 end
