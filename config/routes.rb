@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   #Policy route
   get "/policy", to: "policy#show", as: "policy"
 
+  #Services
+  get "/services", to: "services#show", as: "services"
+
+
+
 end
