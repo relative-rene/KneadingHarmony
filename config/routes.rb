@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   #  resource :calendar, only [:show], controller: :calendar
   #  get 'calendar#show'
   resource :calendar, only: [:show], controller: :calendar
-    resources :users do
-      resources :appointments
-    end
+
+  resources :users do
+    resources :appointments
+  end
 
   root to: 'welcome#index'
   #About route
@@ -15,8 +16,5 @@ Rails.application.routes.draw do
 
   #Services
   get "/services", to: "services#index", as: "services"
-
-  #calendar
-  get "/calendar", to: "calendar#show", as: "calendar"
 
 end
