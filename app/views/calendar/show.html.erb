@@ -14,12 +14,7 @@
 <div class="row">
   <div class="col-md-12">
     <%= calendar @date do |date| %>
-  <%= date.day %>
-  <% if @time_slots_by_date[date] %>
-    <ul>
-      <% @time_slots_by_date[date].each do |time_slot| %>
-        <li><%= link_to time_slot.name, time_slot %></li>
-      <% end %>
-    </ul>
-  <% end %>
-<% end %>
+      <%= date.day %>
+    <% end %>
+  </div>
+</div>
