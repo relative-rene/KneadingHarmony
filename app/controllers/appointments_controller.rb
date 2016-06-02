@@ -26,9 +26,9 @@ class AppointmentsController < ApplicationController
   end
 
 
-  private
-    def appointment_params
-      params.require(:appointment).permit(:time_slot_id, :day).merge(user_id: current_user.id)
-    end
+  #private
+  #  def appointment_params
+  #    params.require(:appointment).permit(:time_slot_id, :day).merge(user_id: current_user.id)
+  #  end
 
 end
