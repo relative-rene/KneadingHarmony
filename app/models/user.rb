@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
     taken = where(day: day, time_slot_id: time_slot_id)
     save unless taken
   end
+
 end
