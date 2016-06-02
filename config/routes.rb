@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :time_slots
   #  resource :calendar, only [:show], controller: :calendar
   #  get 'calendar#show'
   resource :calendar, only: [:show], controller: :calendar
