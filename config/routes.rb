@@ -5,6 +5,11 @@ Rails.application.routes.draw do
       resources :appointments
     end
 
-  root 'welcome#index'
+  root to: 'welcome#index'
+  #About route
+  get "/about", to: "about#show", as: "about"
+
+  #Policy route
+  get "/policy", to: "policy#show", as: "policy"
 
 end
