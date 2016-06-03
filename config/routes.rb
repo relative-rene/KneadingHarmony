@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  resources :time_slots
-  #  resource :calendar, only [:show], controller: :calendar
-  #  get 'calendar#show'
-  resource :calendar, only: [:show], controller: :calendar
-
   resources :users do
     resources :appointments
   end
+  resources :time_slots
+
+
   root to: 'welcome#index'
   #About route
   get "/about", to: "about#show", as: "about"
@@ -18,5 +16,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create", as: "post_session"
-
+  #Appointment & TimeSlot
+  get "/appointments/:id/time_slots/new", to: "time_slots#new", as: "new_time_slots"
+  post "/appointments/:id/time_slots", to: "time_slots#create", as: "create_time_slots"
 end

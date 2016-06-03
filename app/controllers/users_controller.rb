@@ -37,7 +37,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.create(user_params)
-
     if @user.save
       flash[:notice] = "Welcome! Your profile has been successfully created!"
       login(@user)
@@ -75,11 +74,10 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user = User.find_by_id(params[:id])
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:error] = "Your profile has been deleted"
+    redirect_to root_path
   end
 
 
