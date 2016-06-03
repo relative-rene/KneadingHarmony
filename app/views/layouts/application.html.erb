@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AppointmentProject03</title>
@@ -47,12 +47,6 @@
      </nav>
      <br>
      <br>
-     <% flash.each do |type, message| %>
-  <div class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
-    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-    <%= message %>
-  </div>
-<% end %>
      <%= yield %>
    </body>
 </html>
