@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601014152) do
+ActiveRecord::Schema.define(version: 20160601024640) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,14 +28,12 @@ ActiveRecord::Schema.define(version: 20160601014152) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
-    t.string   "password"
-    t.string   "phone_number"
-    t.string   "credit_card"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "login"
+    t.string   "admin",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
