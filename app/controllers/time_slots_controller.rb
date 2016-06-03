@@ -33,26 +33,28 @@ class TimeSlotsController < ApplicationController
       @time_slot = TimeSlot.new(time_slot_params)
       @user = User.find(params(:user_id))
       @appointment = Appointment.find_by_slug(params[:id])
-      respond_to do |format|
-      if @time_slot.save
-        @appointment.time_slots << @time_slot
-        @current_user.time_slots << @time_slot
-        @appointment.save
-        @current_user.save
-        flash[:notice] = "Successful time slot at "+ @appointment.date
-        format.html { redirect_to @time_slot, notice: 'Time slot was successfully created.' }
-        format.json { render :show, status: :created, location: @time_slot }
-        redirect_to @appointment
-      elsif @time_slot.destroy
-        flash[:error] = "There was a problem, try again"
-        redirect_to @appointment
-      else
-        flash[:error] = "You must be admin to create timeslots"
-        format.html { render :new }
-        format.json { render json: @time_slot.errors, status: :unprocessable_entity }
-        redirect_to new_time_slot_path
+        respond_to do |format|
+        if @time_slot.save
+          @appointment.time_slots << @time_slot
+          @current_user.time_slots << @time_slot
+          @appointment.save
+          @current_user.save
+          flash[:notice] = "Successful time slot at "+ @appointment.date
+          format.html { redirect_to @time_slot, notice: 'Time slot was successfully created.' }
+          format.json { render :show, status: :created, location: @time_slot }
+          redirect_to @appointment
+        elsif @time_slot.destroy
+          flash[:error] = "There was a problem, try again"
+          redirect_to @appointment
+        else
+          flash[:error] = "You must be admin to create timeslots"
+          format.html { render :new }
+          format.json { render json: @time_slot.errors, status: :unprocessable_entity }
+          redirect_to new_time_slot_path
+        end
       end
     end
+  end
 
   # PATCH/PUT /time_slots/1
   # PATCH/PUT /time_slots/1.json
