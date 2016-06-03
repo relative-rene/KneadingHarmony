@@ -25,14 +25,16 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
+        flash[:notice] = "Your appointment has been confirmed"
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
         format.json { render :show, status: :created, location: @appointment }
+        redirect_to root_path
       else
+        flash[:error] = "Please review form and fill in all fields marked with an *"
         format.html { render :new }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
       end
     end
-    redirect_to user_path(@user)
   end
 
   def destroy
