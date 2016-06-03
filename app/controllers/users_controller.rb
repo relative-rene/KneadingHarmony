@@ -10,38 +10,57 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find_by_id(params[:id])
+    if @user == current_user
+      render :show
+    else
+      redirect_to users_path
+    end
   end
 
   # GET /users/new
   def new
     @user = User.new
+    render :new
   end
 
   # GET /users/1/edit
   def edit
+    @user = User.find_by_id(params[:id])
+    if current_user == @user
+      render :edit
+    else
+      redirect_to services_path
+    end
   end
-
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
 
-    respond_to do |format|
-  if @user.save
-    # Tell the UserMailer to send a welcome email after save
-    UserMailer.welcome_email(@user).deliver_later
-
-    format.html { redirect_to(@user, notice: 'User was successfully created.') }
-    format.json { render json: @user, status: :created, location: @user }
-  else
-    format.html { render action: 'new' }
-    format.json { render json: @user.errors, status: :unprocessable_entity }
+    if @user.save
+      flash[:notice] = "Welcome! Your profile has been successfully created!"
+      login(@user)
+      redirect_to user_path(@user)
+    else
+      flash[:error] = "Please fill in all required fields (marked with *)"
+      redirect_to services_path
+    end
   end
-end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find_by_id(params[:id])
+    if current_user == @user
+      if @user.update(user_params)
+        flash[:notice] = "Successfully Updated!"
+        redirect_to @user
+      else
+        flash[:error] = "Please fill in all required fields (marked with *)"
+        redirect_to @user
+      end
+    end
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -74,5 +93,4 @@ end
     def user_params
       params.require(:user).permit(:name, :email, :login)
     end
-  end
 end
