@@ -45,5 +45,9 @@ group :development do
   gem 'spring'
 end
 gem "simple_calendar", "~> 2.0"
+
 gem 'bootstrap-sass', '~> 3.3.1'
+
 gem "rails-erd"
+
+gem 'simple_form'

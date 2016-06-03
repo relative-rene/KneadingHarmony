@@ -12,7 +12,6 @@ module AppointmentProject03
         config.time_zone = 'Central Time (US & Canada)'
         config.beginning_of_week = :sunday
         config.active_record.raise_in_transactional_callbacks = true
-        config.encoding = "utf-8"
 
 
     # Settings in config/environments/* take precedence over those specified here.
