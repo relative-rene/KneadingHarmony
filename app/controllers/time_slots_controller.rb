@@ -24,7 +24,16 @@ class TimeSlotsController < ApplicationController
   # POST /time_slots
   # POST /time_slots.json
   def create
-    @time_slot = TimeSlot.new(time_slot_params)
+    if current_user
+      @time_slot = TimeSlot.new(time_slot_params)
+      @user = User.find(params(:user_id))
+      @appointment = Appointment.find_by_slug(params[:id])
+      if @time_slot.save
+        @appointment.time_slots << @time_slot
+        @current_user.time_slots << @time_slot
+        @appointment.save
+        @current_user.save
+        flash[:notice] = "Thank you for joining "+ @appointment.date
 
     respond_to do |format|
       if @time_slot.save
@@ -35,8 +44,6 @@ class TimeSlotsController < ApplicationController
         format.json { render json: @time_slot.errors, status: :unprocessable_entity }
       end
     end
-  end
-
   # PATCH/PUT /time_slots/1
   # PATCH/PUT /time_slots/1.json
   def update
