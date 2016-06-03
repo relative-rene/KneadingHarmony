@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   #  resource :calendar, only [:show], controller: :calendar
   #  get 'calendar#show'
-  resource :calendar, only: [:show], controller: :calendar
     resources :users do
       resources :appointments
     end
