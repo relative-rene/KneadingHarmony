@@ -1,6 +1,17 @@
 class AppointmentsController < ApplicationController
   before_action :logged_in?, only: [:create, :destroy]
 
+  def index
+    @appointment = Appointment.all
+    @user = User.find(params[:id])
+    render :index
+  end
+
+  def show
+    @appointment = Appointment.find_by_slug(params[:user_id])
+    render :show
+  end
+
   def create
     Time.zone = appointment_params[:time_zone]
     @user = User.find(params[:user_id])
