@@ -1,31 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Login</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.login %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<div class="jumbotron">
+  <div class="container">
+    <p>Welcome to,</p><h1 class="display-3">planTastic!</h1> <p>Planning your appointments just got easier</p>
+    <hr>
+    <p></p>
+    <p class="lead">
+      <% if current_user %>
+        <%= button_to "Create Event!", new_appointment_path, :method => "get", class: "btn btn-lg btn-success" %>
+      <% else %>
+        <%= button_to "Sign Up!", new_user_path, :method => "get", class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </p>
+  </div>
+</div>
