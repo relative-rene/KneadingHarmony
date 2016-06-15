@@ -10,41 +10,26 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-       <div class="container">
-         <div class="navbar-header">
-           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-             <span class="sr-only">Toggle navigation</span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-           </button>
-          <!--<div class="navbar-brand"><%= link_to "Schedule",  %></div>-->
-         </div>
-         <div id="navbar" class="navbar-collapse collapse">
-           <% if current_user %>
-           <ul class="nav navbar-nav">
-             <li><%= link_to "Appointments", user_appointment_path(current_user) %></li>
-             <li><%= link_to "Services", service_path(current_user) %></li>
-             <li><%= link_to "Log Out", logout_path %></li>
-             <li class="active-user">Logged in as: <strong><%= current_user.username %></strong></li>
-           </ul>
-             <% else %>
-             <%= form_for :user, url: "/sessions", method: "post", :html => {:class => "navbar-form navbar-right"} do |f| %>
-               <div class="form-group">
-                 <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
-               </div>
-               <div class="form-group">
-                 <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
-               </div>
-               <div class="form-group">
-               <%= f.submit "Sign In", class: "btn btn-success" %>
-               </div>
-             <% end %>
-           <% end %>
-         </div><!--/.navbar-collapse -->
-       </div>
-     </nav>
-     <%= yield %>
-   </body>
+
+  <!-- navbar helper -->
+  <%= render "shared/navbar" %>
+
+  <!-- Flash Message -->
+  <% flash.each do |type, message| %>
+    <div class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <%= message %>
+    </div>
+  <% end %>
+
+
+  <!-- Pages render in here -->
+  <%= yield %>
+  <!-- End page render -->
+
+  <!-- footer helper -->
+  <%= render "shared/footer" %>
+
+
+</body>
 </html>

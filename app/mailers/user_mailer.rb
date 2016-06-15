@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
   after_action :set_delivery_options,
-               :prevent_delivery_to_guests,
+               :prtime_slot_delivery_to_guests,
                :set_business_headers
   def receive(email)
      page = Page.find_by(address: email.to.first)
@@ -38,7 +38,7 @@ class UserMailer < ApplicationMailer
       end
     end
 
-    def prevent_delivery_to_guests
+    def prtime_slot_delivery_to_guests
       if @user && @user.guest?
         mail.perform_deliveries = false
       end

@@ -1,34 +1,60 @@
 class AppointmentsController < ApplicationController
-  before_action :logged_in?, only: [:create, :destroy]
+   def index
+      @appointments = User.appointments
+      current_user
+         render :index
+      # else
+      #    redirect_to home_index_path
+   end
 
-  def create
-    Time.zone = appointment_params[:time_zone]
-    @user = User.find(params[:user_id])
-    @appointment = @user.appointments.create(appointment_params).valid?
-
-    respond_to do |format|
-      if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
-        format.json { render :show, status: :created, location: @appointment }
-      else
-        format.html { render :new }
-        format.json { render json: @appointment.errors, status: :unprocessable_entity }
+   def send_email(email)
+      if email.nil?
+         flash[:error] = "No email"
+         return
       end
-    end
-    redirect_to user_path(@user)
-  end
+      AppointmentMailer.appointment_created(email).deliver_now
+      flash[:success] = "Appointment created!"
+   end
 
-  def destroy
-    @user = User.find(params[:user_id])
-    @appointment = @user.appointments.find(params[:id])
-    @appointment.destroy
-    redirect_to user_path(@user)
-  end
+   def create
+      #  req_date
+      appointment = Appointment.create(appointment_params)
+      req_date=Date.strptime(appointment_params[:date], "%m/%d/%Y")
+      appointment.date = req_date
+      appointment.user = current_user
+      appointment.save
+      send_email(current_user.email)
+      test_service = MyServices::PhotonService.new()
+      test_service.test_fire("on")
+      redirect_to user_path(current_user)
+   end
+
+   def destroy
+      @appointment = appointment.find(params[:id])
+      @user = @appointment.user
+      if current_user == @user
+         @user.appointments.destroy(@appointment)
+         flash[:success] = "Appointment Canceled!"
+         redirect_to @user
+      else
+         flash[:error] = "Must log in to Cancel the Appointment"
+         redirect_to home_path
+      end
+   end
+
+   def availability
+      req_date=Date.strptime(params[:date], "%m/%d/%Y")
+      week_day=req_date.wday
+      time_check=Appointment.all.where(date:req_date).pluck(:time)
+      work_hour_check=WorkHour.where(week_day:week_day).where.not(hour: [time_check]).pluck(:hour)
+      render json:work_hour_check
+      return
+   end
 
 
-  private
-    def appointment_params
-      params.require(:appointment).permit(:time_slot_id, :day).merge(user_id: current_user.id)
-    end
+   private
 
+   def appointment_params
+      params.permit(:date, :email, :time)
+   end
 end
