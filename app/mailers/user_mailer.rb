@@ -49,4 +49,5 @@ class UserMailer < ApplicationMailer
         headers["X-SMTPAPI-CATEGORY"] = @business.code
       end
     end
+  end
 end
