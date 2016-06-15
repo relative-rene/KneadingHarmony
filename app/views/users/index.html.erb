@@ -1,11 +1,11 @@
 <div class="jumbotron">
   <div class="container">
-    <p>Welcome to,</p><h1 class="display-3">planTastic!</h1> <p>Planning your appointments just got easier</p>
+    <p>Welcome to,</p><h1 class="display-3">Kneading Harmony!</h1> <p>Planning your appointments just got easier</p>
     <hr>
     <p></p>
     <p class="lead">
       <% if current_user %>
-        <%= button_to "Create Event!", new_appointment_path, :method => "get", class: "btn btn-lg btn-success" %>
+        <%= button_to "Create Time_slot!", new_appointment_path, :method => "get", class: "btn btn-lg btn-success" %>
       <% else %>
         <%= button_to "Sign Up!", new_user_path, :method => "get", class: "btn btn-lg btn-primary" %>
       <% end %>
