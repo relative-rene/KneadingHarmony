@@ -24,8 +24,6 @@ class AppointmentsController < ApplicationController
       appointment.user = current_user
       appointment.save
       send_email(current_user.email)
-      test_service = MyServices::PhotonService.new()
-      test_service.test_fire("on")
       redirect_to user_path(current_user)
    end
 
@@ -43,10 +41,10 @@ class AppointmentsController < ApplicationController
    end
 
    def availability
-      req_date=Date.strptime(params[:date], "%m/%d/%Y")
-      week_day=req_date.wday
-      time_check=Appointment.all.where(date:req_date).pluck(:time)
-      work_hour_check=WorkHour.where(week_day:week_day).where.not(hour: [time_check]).pluck(:hour)
+      req_date = Date.strptime(params[:date], "%m/%d/%Y")
+      week_day = req_date.wday
+      time_check = Appointment.all.where(date:req_date).pluck(:time)
+      work_hour_check = Time_slot.where(week_day:week_day).where.not(hour: [time_check]).pluck(:hour)
       render json:work_hour_check
       return
    end
