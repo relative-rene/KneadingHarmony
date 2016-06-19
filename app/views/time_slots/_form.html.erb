@@ -1,0 +1,5 @@
+<%= simple_form_for @time_slot do |f| %>
+  <%= f.input :week_day, placeholder: "Date", id: "datepicker"%>
+  <%= f.input :hour, placeholder: "Time"%>
+  <%= f.button :submit %>
+<% end %>
