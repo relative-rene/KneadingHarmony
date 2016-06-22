@@ -3,8 +3,16 @@
     <p>Welcome to,</p><h1 class="display-3">Kneading Harmony!</h1> <p>Planning your appointments just got easier</p>
     <hr>
     <p></p>
+    <p class="lead">
+      <% if current_user %>
+        <%= button_to "Create Event!", new_event_path, :method => "get", class: "btn btn-lg btn-success" %>
+      <% else %>
+        <%= button_to "Sign Up!", new_user_path, :method => "get", class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </p>
   </div>
 </div>
+
 <div class="container">
   <div class="alert alert-warning alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
