@@ -1,0 +1,57 @@
+<div class="container user-container">
+<hr>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Welcome, <%= @user.name %></h3>
+        <hr>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Name:</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>Email Address:</td>
+            <td><%= @user.email%></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn-group btn-group-justified" role="group">
+        <div class="inner"><%= button_to "Edit Profile", user_edit_path(@user), :method => 'get', class: "btn btn-small btn-success" %></div>
+        <div class="inner"><%= button_to "New Event", new_timeslot_path(@user), :method => 'get', class: "btn btn-small btn-primary" %></div>
+        <div class="inner"><%= button_to "Delete Profile", destroy_user_path(@user),data: {:confirm=>'Are you sure you want to delete your profile? This cannot be undone.'}, :method => 'delete', class: "btn btn-small btn-danger" %></div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h3>Timeslots</h3>
+      <hr>
+      <% if @user.timeslots.empty? %>
+        <p>You do not have any scheduled timeslots</p>
+      <% end %>
+      <% else %>
+      <% @user.timeslots.each do |t|%>
+        <h3><%=link_to "#{t.user_id}", timeslot_path(t)%></h3>
+        <p><%= "#{t.work_day}" %></p>
+        <p>Time Slot:<%= "#{t.hour}" %></p>
+        <hr>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user.password_digest %>
+</p>

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.find_by_id(params[:id])
     render :index
   end
 
@@ -63,7 +62,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password_digest, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password_digest, :password_confirmation, :admin)
   end
 
 end

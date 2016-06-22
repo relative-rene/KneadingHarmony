@@ -18,7 +18,7 @@
 
 $(document).on('keyup keypress', 'form input[type="text"]', function(e) {
   if(e.which == 13) {
-    e.prtime_slotDefault();
+    e.prtimeslotDefault();
     return false;
   }
 });

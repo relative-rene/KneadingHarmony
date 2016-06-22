@@ -15,17 +15,17 @@ ActiveRecord::Schema.define(version: 20160601024640) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "time_slot_id"
+    t.integer  "timeslot_id"
     t.string   "date"
     t.integer  "reason_for_visit"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  add_index "appointments", ["time_slot_id"], name: "index_appointments_on_time_slot_id"
+  add_index "appointments", ["timeslot_id"], name: "index_appointments_on_timeslot_id"
   add_index "appointments", ["user_id"], name: "index_appointments_on_user_id"
 
-  create_table "time_slots", force: :cascade do |t|
+  create_table "timeslots", force: :cascade do |t|
     t.string   "week_day"
     t.string   "hour"
     t.string   "slug"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160601024640) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "phone_number"
+    t.string   "admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

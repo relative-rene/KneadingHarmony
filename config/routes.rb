@@ -16,23 +16,23 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create"
 
-  #Time_Slot
-  get "/time_slots", to: "time_slots#index", as: "time_slots"
-  get "/time_slots/new", to: "time_slots#new", as: "new_time_slot"
-  post "/time_slots", to: "time_slots#create", as: "create_time_slot"
-  get "/time_slots/:id", to: "time_slots#show", as: "time_slot"
-  get "/time_slots/:id/edit", to: "time_slots#edit", as: "edit_time_slot"
-  patch "/time_slots/:id", to: "time_slots#update", as: "update_time_slot"
-  delete "/time_slots/:id", to: "time_slots#destroy", as: "delete_time_slot"
+  #Timeslot
+  get "/timeslots", to: "timeslots#index", as: "timeslots"
+  get "/timeslots/new", to: "timeslots#new", as: "new_timeslot"
+  post "/timeslots", to: "timeslots#create", as: "create_timeslot"
+  get "/timeslots/:id", to: "timeslots#show", as: "timeslot"
+  get "/timeslots/:id/edit", to: "timeslots#edit", as: "edit_timeslot"
+  patch "/timeslots/:id", to: "timeslots#update", as: "update_timeslot"
+  delete "/timeslots/:id", to: "timeslots#destroy", as: "delete_timeslot"
 
 
   #Appointment
-  get '/time_slots/:id/appointments/new', to: "appointments#new", as: "new_appointment"
-  post '/time_slots/:id/appointments/create', to: "appointments#create", as: "create_appointment"
-  get '/time_slots/:id/appointments/:id', to: "appointments#show", as: "appointment"
+  get '/timeslots/:id/appointments/new', to: "appointments#new", as: "new_appointment"
+  post '/timeslots/:id/appointments/create', to: "appointments#create", as: "create_appointment"
+  get '/timeslots/:id/appointments/:id', to: "appointments#show", as: "appointment"
   get '/appointments/:id/edit', to: "appointments#edit", as: "edit_appointment"
   patch '/appointments/:id', to: "appointments#update"
-  delete '/time_slots/:time_slot_id/appointments/:appointment_id', to: "appointments#destroy", as: "delete_appointment"
+  delete '/timeslots/:timeslot_id/appointments/:appointment_id', to: "appointments#destroy", as: "delete_appointment"
 
   #About route
   get "/about", to: "about#show", as: "about"

@@ -58,8 +58,8 @@ class AppointmentsController < ApplicationController
       req_date = Date.strptime(params[:date], "%m/%d/%Y")
       week_day = req_date.wday
       time_check = Appointment.all.where(date:req_date).pluck(:time)
-      time_slot_check = Time_Slot.where(week_day: week_day).where.not(hour: [time_check]).pluck(:hour)
-      render json:time_slot_check
+      timeslot_check = Timeslot.where(week_day: week_day).where.not(hour: [time_check]).pluck(:hour)
+      render json:timeslot_check
       return
    end
 
@@ -77,8 +77,8 @@ class AppointmentsController < ApplicationController
    def get_id
     appointment_id = params[:id]
     Appointment.find_by_id(appointment_id)
-    time_slot_id = params[:id]
-    Time_Slot.find_by_slug(time_slot_id)
+    timeslot_id = params[:id]
+    Timeslot.find_by_slug(timeslot_id)
 
    end
 
