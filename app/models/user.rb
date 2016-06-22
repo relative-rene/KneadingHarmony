@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # validates :email, :password, presence: true, uniqueness:true
   # validates_confirmation_of :password
   has_many :appointments, dependent: :destroy
-  has_many :time_slots, through: :appointments
+  has_many :timeslots, through: :appointments
 
 
   def self.confirm(params)

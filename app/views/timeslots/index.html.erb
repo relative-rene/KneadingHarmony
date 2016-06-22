@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h1>All available time slots!</h1>
+    <hr>
+  </div>
+  <div class="row">
+    <% @timeslot.each do |t|%>
+      <div class="row timeslot">
+        <div class="col-md-6">
+          <p>Day of Week:<%= "#{t.week_day}" %></p>
+          <p>Hour: <%= "#{t.hour}" %></p>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
