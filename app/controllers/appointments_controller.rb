@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
    end
 
    def new
-     @appointments = Appointment.new
+     @appointment = Appointment.new
      @user = User.find_by_id(params[:id])
    end
 

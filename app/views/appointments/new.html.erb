@@ -6,9 +6,114 @@
     <h1>Create an Appointment</h1>
   </div>
   <hr>
-  <div class="row">
-    <div class="col-md-8">
-      <%= render "form" %>
-    </div>
+  <!-- ******* User Authorization ******** -->
+  <% if @user == current_user %>
+
+  <!-- ******* User Information Start ******** -->
+
+  <div class="container-fluid">
+  <div class="infos">
+     <div class="row">
+        <div class="col-xs-12 col-lg-5">
+
+           <p id="notice"><%= notice %></p>
+           <div>
+              <h1>Welcome, <%= @user.name %></h1>
+           </div>
+
+           <div class="infos" class="card">
+             <div class="card-block">
+               <p class="card-text">
+
+           <p>
+              <strong>Name:</strong>
+              <%= @user.name %>
+           </p>
+
+           <p>
+              <strong>Email:</strong>
+              <%= @user.email %>
+           </p>
+
+           <p>
+              <strong>Phone number:</strong>
+              <%= @user.phone_number %>
+           </p>
+
+           <%= link_to 'Edit', user_edit_path %> <br />
+        </p>
+     </div>
   </div>
-</div>
+        </div>
+
+        <!-- ******* Appointment Scheduler Beginning ******** -->
+
+
+        <form action="/appointments" method="post">
+
+           <strong><h2>Appointment Time</h2></strong>
+           <input type="text" name="reason_for_visit" class='textbox' placeholder="Reason for Visit"></input>
+           <input type="text" name="date" class='datepicker' placeholder="Select a Date"></input>
+           <input type="submit" class="subutt"/>
+
+           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+
+
+           <div class="scrolly">
+
+              <script type="text/javascript">
+              $(document).ready(function(){
+                 $('.datepicker').datepicker();
+                 $(".datepicker").change(function(){
+                    date_val=$(".datepicker").val();
+                    if (date_val==""){
+                       return
+                    }
+                    $.ajax({
+                       method: 'get',
+                       datatype: 'json',
+                       url: '/appointments/availability',
+                       data: {date: date_val},
+                       success: onSuccess,
+                       error: onError,
+                    });
+                 });
+                 function create_item(appointment){
+                    output='<div class="radio"><label><input name="time" type="radio" value="'
+                    output+=appointment
+                    output+='">'
+                    output+=appointment
+                    output+='</label></div>'
+                    return output
+                 }
+                 function onSuccess(data, status, jqxhr) {
+                    output=""
+                    available_app=data.forEach(function(item){
+                       output+=create_item(item)
+                    })
+                    $(".scrolly").html(output);
+                 }
+                 function onError(jqxhr, status, error) {
+                    $(".scrolly").html("error");
+                 }
+              });
+              </script>
+           </form>
+        </div>
+     </div>
+  </div>
+  </div>
+
+
+
+
+  <!-- ******* User Authentication ******** -->
+
+     <% else %>
+        <% if current_user %>
+        <h1 class="denied"> <%= current_user.name %> is not authorized to view this page. </h1>
+     <% else %>
+        <h1 class="denied"> You are not authorized to view this page. </h1>
+     <% end %>
+  <% end %>
