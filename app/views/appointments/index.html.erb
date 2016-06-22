@@ -15,3 +15,42 @@
     <%end%>
   </div>
 </div>
+
+<!-- ******* Appointments List Start ******** -->
+
+<div class="col-xs-12 col-lg-12">
+   <p>
+      <hr />
+   </p>
+   <div class="infos">
+
+   <div id="appTitle" class="container">
+      <div class="row vertical-center-row">
+         <h3>Appointment List</h3>
+      </div>
+   </div>
+
+   <div class="scrolly2" >
+      <table class="table table-striped">
+         <thead class="thead-default">
+            <tr>
+               <th>Date</th>
+               <th>Time</th>
+               <th>Reason for Visit</th>
+            </tr>
+         </thead>
+         <tbody>
+            <% @appointment.each do |apt|  %>
+            <tr>
+               <th scope="row"><%= apt.date %></th>
+               <td><%= apt.time %></td>
+               <td><%= apt.reason_for_visit %></td>
+            </tr>
+            <% end %>
+         </tbody>
+      </table>
+   </div>
+</div>
+<br />
+<br />
+</div>
