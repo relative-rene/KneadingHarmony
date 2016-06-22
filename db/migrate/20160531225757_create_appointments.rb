@@ -5,7 +5,7 @@ class CreateAppointments < ActiveRecord::Migration
       t.references :timeslot, index: true, foreign_key: true
 
       t.string :date
-      t.integer :reason_for_visit
+      t.string :reason_for_visit
 
       t.timestamps null: false
     end

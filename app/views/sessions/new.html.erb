@@ -12,7 +12,7 @@
       <%= simple_form_for @user, url: sessions_path, as: 'user' do |f| %>
         <%= f.input :email, placeholder: "email@email.com"%>
         <%= f.input :password, placeholder: "Password"%>
-        <%= f.button :submit, name:"Login", value: "Login" %>
+        <%= f.button :submit, name:"Login", value: "password_digest" %>
       <% end %>
     </div>
   </div>
