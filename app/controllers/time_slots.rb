@@ -1,22 +1,25 @@
-class Time_slotsController < ApplicationController
-  before_action :check_admin? [:create, :edit, :update, :destroy]
+class Time_SlotsController < ApplicationController
+# before_action :check_admin? [:create, :edit, :update, :destroy]
 
   def index
-    @time_slot = Time_slot.all
+    @time_slot = Time_Slot.all
+    @appointment = Appointment.find_by_id(params[:id])
     render :index
   end
 
   def show
-    @time_slot = Time_slot.find_by_slug(params[:id])
+    @time_slot = Time_Slot.find_by_slug(params[:id])
+    @appointments = @time_slot.appointments
     render :show
   end
 
   def new
-    @time_slot = Time_slot.new
+    @time_slot = Time_Slot.new
+    @user = User.find_by_id(params[:id])
   end
 
   def create
-    @time_slot = Time_slot.new(time_slot_params)
+    @time_slot = Time_Slot.new(time_slot_params)
     @time_slot.user_id = current_user.id
     if @time_slot.save
       flash[:notice] = "Let's party! Your time_slot has been successfully created!"
@@ -28,12 +31,13 @@ class Time_slotsController < ApplicationController
   end
 
   def edit
-    @time_slot = Time_slot.find_by_slug(params[:id])
+    @time_slot = Time_Slot.find_by_slug(params[:id])
+    @user = User.find_by_id(params[:id])
     render :edit
   end
 
   def update
-    @time_slot = Time_slot.find_by_slug(params[:id])
+    @time_slot = Time_Slot.find_by_slug(params[:id])
     if @time_slot.update(time_slot_params)
       redirect_to time_slot_path(@time_slot)
     else
@@ -43,7 +47,7 @@ class Time_slotsController < ApplicationController
   end
 
   def destroy
-    @time_slot = Time_slot.find_by_slug(params[:id])
+    @time_slot = Time_Slot.find_by_slug(params[:id])
     @time_slot.destroy
     redirect_to time_slots_path
   end
@@ -51,12 +55,12 @@ class Time_slotsController < ApplicationController
   private
 
   def check_admin?
-    if @current_user.admin == true
+    if @current_user.admin == 7531
     end
   end
 
 
   def time_slot_params
-    params.require(:time_slot).permit(:hour, :time)
+    params.require(:time_slot).permit(:hour, :time, :slug)
   end
 end

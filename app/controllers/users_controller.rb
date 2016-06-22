@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
+    @user = User.find_by_id(params[:id])
     render :index
   end
 
@@ -24,7 +24,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    @appointments = @user.appointments.collect()
     if @user == current_user
       render :show
     else
@@ -63,12 +62,8 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
-  end
-
   def user_params
-    params.require(:user).permit(:name, :email, :login)
+    params.require(:user).permit(:name, :email, :password_digest, :password_confirmation)
   end
 
 end

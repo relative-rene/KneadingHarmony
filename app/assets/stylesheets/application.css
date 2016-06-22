@@ -9,9 +9,44 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
- *= require_self
+ *= require bootstrap-datepicker
  *= require_tree .
+ *= require_self
  */
- @import "bootstrap-sprockets"
- @import "bootstrap"
+  @import "bootstrap-sprockets"
+  @import "bootstrap"
+
+  body
+    padding-top: 50px
+    padding-bottom: 50px
+
+  .display-3
+    font-family: "Lobster", cursive
+    color: #3a3a3a
+    position: relative
+
+  .jumbotron
+    height: 600px
+    background-image: url(image-path("party_main.jpg"))
+
+  .firstButton
+    float: right
+
+  .user-container
+    padding-top: 20px
+
+  .event
+    padding-top: 20px
+
+  .inner
+    display: inline-block
+    padding-right: 10px
+    padding-top: 10px
+
+  .navbar-fixed-bottom
+    padding: 5px 20px
+    margin-top: 20px
+    background-color: #F8F8F8
+
+  .glyphicon
+    float: right
