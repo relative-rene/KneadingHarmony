@@ -7,7 +7,6 @@ class TimeslotsController < ApplicationController
 
   def show
     @timeslot = Timeslot.find_by_slug(params[:id])
-    @appointments = @timeslot.appointments
     render :show
   end
 

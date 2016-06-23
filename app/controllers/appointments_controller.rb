@@ -3,32 +3,34 @@ class AppointmentsController < ApplicationController
   before_action :appointment_params, only: [:update, :create]
 
    def index
-      @appointments = User.appointments.all
+      @appointment = User.appointments.all
          render :index
-      # else
-      #    redirect_to home_index_path
    end
 
    def new
      @appointment = Appointment.new
      @user = User.find_by_id(params[:id])
+     @timeslot = User.find_by_id(params[:id])
    end
 
    def show
      @user = User.find_by_id(params[:id])
-     @appointment = Appointment.find_by_id(params[:id])
+     @appointment = @user.appointment
      render :show
    end
 
    def create
-      #  req_date
       @appointment = Appointment.new(appointment_params)
-      req_date=Date.strptime(appointment_params[:date], "%m/%d/%Y")
-      @appointment.date = req_date
-      @appointment.user = current_user
+      @appointment.date = Date.strptime(appointment_params[:date], "%m/%d/%Y")
+      @timeslot = Timeslot.find_by_slug(params[:id])
+      @timeslot.appointments << @appointment
+      @user.appointments << @appointment
+      @user.save
       @appointment.save
-      send_email(current_user.email)
-      redirect_to user_path(current_user)
+      @timeslot.save
+
+      send_email(@appointment.user.email)
+      redirect_to user_path(@appointment.user)
    end
 
    def edit
