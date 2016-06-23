@@ -7,7 +7,7 @@ class TimeslotsController < ApplicationController
 
   def show
     @timeslot = Timeslot.find_by_slug(params[:id])
-    @user = User.find_by_id(params[:id])
+    @appointments = @timeslot.appointments
     render :show
   end
 
@@ -20,7 +20,7 @@ class TimeslotsController < ApplicationController
     @timeslot = Timeslot.new(timeslot_params)
     @user = User.find_by_id(params[:id])
     if @timeslot.save
-      flash[:notice] = "Let's party! Your timeslot has been successfully created!"
+      flash[:notice] = "You've added another time slot"
       redirect_to timeslot_path(@timeslot)
     else
       flash[:error] = "Please fill in all required fields (marked with *)"
