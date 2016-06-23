@@ -7,7 +7,7 @@ class TimeslotsController < ApplicationController
 
   def show
     @timeslot = Timeslot.find_by_slug(params[:id])
-    @appointments = @timeslot.appointments
+    @users = @timeslot.users
     render :show
   end
 
@@ -18,7 +18,6 @@ class TimeslotsController < ApplicationController
 
   def create
     @timeslot = Timeslot.new(timeslot_params)
-    @timeslot.user_id = current_user.id
     @user = User.find_by_id(params[:id])
     if @timeslot.save
       flash[:notice] = "Let's party! Your timeslot has been successfully created!"
@@ -54,6 +53,6 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:hour, :week_day, :slug)
+    params.require(:timeslot).permit(:hour, :week_day, :slug, :user_id)
   end
 end
