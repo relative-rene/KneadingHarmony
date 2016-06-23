@@ -16,6 +16,14 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create"
 
+  #Appointment
+  get '/timeslots/:id/appointments/new', to: "appointments#new", as: "new_appointment"
+  post '/timeslots/:id/appointments/create', to: "appointments#create", as: "create_appointment"
+  get '/timeslots/:id/appointments/:id', to: "appointments#show", as: "appointment"
+  get '/appointments/:id/edit', to: "appointments#edit", as: "edit_appointment"
+  patch '/appointments/:id', to: "appointments#update"
+  delete '/timeslots/:timeslot_id/appointments/:appointment_id', to: "appointments#destroy", as: "delete_appointment"
+
   #Timeslot
   get "/timeslots", to: "timeslots#index", as: "timeslots"
   get "/timeslots/new", to: "timeslots#new", as: "new_timeslot"
@@ -25,14 +33,6 @@ Rails.application.routes.draw do
   patch "/timeslots/:id", to: "timeslots#update", as: "update_timeslot"
   delete "/timeslots/:id", to: "timeslots#destroy", as: "delete_timeslot"
 
-
-  #Appointment
-  get '/timeslots/:id/appointments/new', to: "appointments#new", as: "new_appointment"
-  post '/timeslots/:id/appointments/create', to: "appointments#create", as: "create_appointment"
-  get '/timeslots/:id/appointments/:id', to: "appointments#show", as: "appointment"
-  get '/appointments/:id/edit', to: "appointments#edit", as: "edit_appointment"
-  patch '/appointments/:id', to: "appointments#update"
-  delete '/timeslots/:timeslot_id/appointments/:appointment_id', to: "appointments#destroy", as: "delete_appointment"
 
   #About route
   get "/about", to: "about#show", as: "about"

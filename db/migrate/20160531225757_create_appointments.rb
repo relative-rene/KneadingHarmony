@@ -1,9 +1,8 @@
 class CreateAppointments < ActiveRecord::Migration
   def change
     create_table :appointments do |t|
-      t.references :user, index: true, foreign_key: true
-      t.references :timeslot, index: true, foreign_key: true
-
+      t.integer :user_id
+      t.integer :timeslot_id
       t.string :date
       t.string :reason_for_visit
 
