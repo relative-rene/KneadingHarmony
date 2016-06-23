@@ -1,6 +1,24 @@
+<hr>
+<!-- ******* User Authorization ******** -->
+<% if @user == current_user %>
+
+
+
 <%= simple_form_for @appointment do |f| %>
   <%= f.input :name, label: "The appointment is for.." %>
   <%= f.input :date, placeholder: "Date", id: "datepicker"%>
   <%= f.input :time, placeholder: "Time"%>
   <%= f.button :submit %>
+<% end %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+
+<!-- ******* User Authentication ******** -->
+
+   <% else %>
+      <% if current_user %>
+      <h1 class="denied"> <%= current_user.name %> is not authorized to view this page. </h1>
+   <% else %>
+      <h1 class="denied"> You are not authorized to view this page. </h1>
+   <% end %>
 <% end %>
