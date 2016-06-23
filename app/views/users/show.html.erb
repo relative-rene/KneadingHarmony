@@ -18,7 +18,7 @@
       </table>
       <div class="btn-group" role="group">
         <div class="inner"><%= button_to "Edit Profile", user_edit_path(@user), :method => 'get', class: "btn btn-small btn-success" %></div>
-        <div class="inner"><%= button_to "New timeslot", new_appointment_path(@user), :method => 'get', class: "btn btn-small btn-primary" %></div>
+        <div class="inner"><%= button_to "New Appointment", new_appointment_path(@user), :method => 'get', class: "btn btn-small btn-primary" %></div>
         <div class="inner"><%= button_to "Delete Profile", destroy_user_path(@user),data: {:confirm=>'Are you sure you want to delete your profile? This cannot be undone.'}, :method => 'delete', class: "btn btn-small btn-danger" %></div>
       </div>
     </div>

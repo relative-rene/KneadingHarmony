@@ -1,6 +1,4 @@
-
-<br>
-<br>
+<hr>
 
 <div class="container">
   <div class="row">
@@ -11,8 +9,8 @@
     <div class="col-md-6">
       <%= simple_form_for @user, url: sessions_path, as: 'user' do |f| %>
         <%= f.input :email, placeholder: "email@email.com"%>
-        <%= f.input :password, placeholder: "Password"%>
-        <%= f.button :submit, name:"Login", value: "password_digest" %>
+        <%= f.input :password_digest, label: "Password" %>
+        <%= f.button :submit, name:"Login", value:"Login" %>
       <% end %>
     </div>
   </div>
