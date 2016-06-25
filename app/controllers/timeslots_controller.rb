@@ -6,7 +6,9 @@ class TimeslotsController < ApplicationController
   end
 
   def show
-    @timeslot = Timeslot.find_by_slug(params[:id])
+    @timeslot = Timeslot.find_by_id(params[:id])
+    @appointment = Appointment.all
+    @user = User.find_by_id(params[:id])
     render :show
   end
 
@@ -52,6 +54,6 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:hour, :week_day, :slug, :user_id)
+    params.require(:timeslot).permit(:hour, :week_day, :slug)
   end
 end

@@ -8,15 +8,22 @@ class AppointmentsController < ApplicationController
    end
 
    def new
-     @appointment = Appointment.new
      @user = User.find_by_id(params[:id])
-     @timeslot = User.find_by_id(params[:id])
+     @appointment = Appointment.new
+     @timeslot = Timeslot.find_by_id(params[:id])
+     render :new
    end
 
    def show
      @user = User.find_by_id(params[:id])
      @appointment = @user.appointment
      render :show
+   end
+
+
+   def edit
+     @appointment = Appointment.find_by_id(params[:id])
+     render :edit
    end
 
    def create
@@ -31,11 +38,6 @@ class AppointmentsController < ApplicationController
 
       send_email(@appointment.user.email)
       redirect_to user_path(@appointment.user)
-   end
-
-   def edit
-     @appointment = Appointment.find_by_id(params[:id])
-     render :edit
    end
 
    def update
