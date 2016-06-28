@@ -6,8 +6,6 @@
           <div class="inner"><%= button_to "Edit", edit_timeslot_path(@timeslot), :method => "get", class: "btn btn-small btn-success"%></div>
           <div class="inner"><%= button_to "Delete Event", delete_timeslot_path, data: {:confirm=>'Are you sure you want to delete this timeslot?'}, :method => "delete", class: "btn btn-small btn-danger" %></div>
           <div class="inner"><%= button_to "Attend", new_appointment_path(@timeslot), :method => "get", class: "btn btn-small btn-primary" %></div>
-        <% else %>
-          <%= button_to "Login", login_path, :method => "get", class: "btn btn-small btn-primary" %>
         <% end %>
       </div>
         <h3> You have an available timeslot at: <%= @timeslot.hour%></h3>

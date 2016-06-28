@@ -1,4 +1,5 @@
 class TimeslotsController < ApplicationController
+  
   def index
     @timeslot = Timeslot.all
     @user = User.find_by_id([:id])
