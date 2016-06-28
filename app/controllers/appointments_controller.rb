@@ -1,17 +1,15 @@
 class AppointmentsController < ApplicationController
-  before_action :get_id, only: [:update, :destroy]
   before_action :appointment_params, only: [:update, :create]
 
    def index
       @appointment = User.appointments.all
-         render :index
+        render :index
    end
 
    def new
-     @user = User.find_by_id(params[:id])
      @appointment = Appointment.new
-     @timeslot = Timeslot.find_by_id(params[:id])
-     render :new
+     @user = @current_user
+      render :new
    end
 
    def show
@@ -78,16 +76,7 @@ class AppointmentsController < ApplicationController
 
    private
 
-   def get_id
-    appointment_id = params[:id]
-    Appointment.find_by_id(appointment_id)
-    timeslot_id = params[:id]
-    Timeslot.find_by_slug(timeslot_id)
-
-   end
-
-
    def appointment_params
-      params.require(:appointment).permit(:date, :email, :reason_for_visit)
+      params.require(:appointment).permit(:date, :email, :reason_for_visit, :timeslot_id)
    end
 end
