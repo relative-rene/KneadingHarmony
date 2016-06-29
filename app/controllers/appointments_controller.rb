@@ -1,14 +1,15 @@
 class AppointmentsController < ApplicationController
   before_action :appointment_params, only: [:update, :create]
+  attr_accessor :user, :timeslot, :appointment
 
    def index
-      @appointment = User.appointments.all
+      @appointment = User.appointment
         render :index
    end
 
    def new
+     @user = User.find_by_id(params[:id])
      @appointment = Appointment.new
-     @user = @current_user
       render :new
    end
 
@@ -76,7 +77,12 @@ class AppointmentsController < ApplicationController
 
    private
 
-   def appointment_params
-      params.require(:appointment).permit(:date, :email, :reason_for_visit, :timeslot_id)
+   def set_user
+     @user = @appointment.user_id
    end
+
+   def appointment_params
+     params.require(:appointment).permit(:name, :date, :time, :email, :reason_for_visit)
+   end
+
 end

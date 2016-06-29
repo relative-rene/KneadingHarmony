@@ -1,6 +1,6 @@
 class Timeslot < ActiveRecord::Base
-  belongs_to :appointment
-
+  has_one :appointment
+  
   extend FriendlyId
     friendly_id :user_id, use: :slugged
 
