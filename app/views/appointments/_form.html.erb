@@ -1,8 +1,8 @@
 <hr>
 
 <%= simple_form_for @appointment do |f| %>
-  <%= f.input :name, label: "The appointment is for.." %>
+  <%= f.association :user %>
   <%= f.input :date, placeholder: "Date", id: "datepicker"%>
-  <%= f.input :time, placeholder: "Time"%>
+  <%= f.association :timeslot, collection: Timeslot.active.order(:hour), prompt: " Choose a time" %>
   <%= f.button :submit %>
 <% end %>

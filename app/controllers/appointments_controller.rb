@@ -1,16 +1,9 @@
 class AppointmentsController < ApplicationController
   before_action :appointment_params, only: [:update, :create]
-  attr_accessor :user, :timeslot, :appointment
-
-   def index
-      @appointment = User.appointment
-        render :index
-   end
 
    def new
      @user = User.find_by_id(params[:id])
      @appointment = Appointment.new
-      render :new
    end
 
    def show
@@ -82,7 +75,7 @@ class AppointmentsController < ApplicationController
    end
 
    def appointment_params
-     params.require(:appointment).permit(:name, :date, :time, :email, :reason_for_visit)
+     params.require(:appointment).permit(:date, :time, :reason_for_visit)
    end
 
 end

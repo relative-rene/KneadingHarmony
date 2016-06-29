@@ -1,8 +1,8 @@
 class Timeslot < ActiveRecord::Base
   has_one :appointment
-  
+
   extend FriendlyId
-    friendly_id :user_id, use: :slugged
+    friendly_id :hour, use: :slugged
 
   def self.confirm(params)
     @timeslot = Timeslot.find_by_id(params[:id])
