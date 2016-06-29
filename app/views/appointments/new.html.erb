@@ -9,10 +9,10 @@
     <div class="col-xs-12 col-lg-5">
       <hr>
       <%= simple_form_for @appointment, url: create_appointment_path(@user), as:'appointment' do |f| %>
-      <%= f.input :user, label: 'name' %>
-      <%= f.asscociation :timeslot, label: "Date", collection: Timeslot.friendly(:date)%>
-      <%= f.association :timeslot,label:"Hour", collection: Timeslot.order.friendly(:hour), prompt: "Choose time" %>
-      <%= f.button :submit %>
+        <%= f.input :user, label: 'name' %>
+        <%= f.association :timeslot, label: "Day of week" %>
+        <%= f.association :timeslot, label:"Hour", collection: Timeslot.order(:hour), prompt: "Choose time" %>
+        <%= f.button :submit %>
       <% end %>
     </div>
   </div>
