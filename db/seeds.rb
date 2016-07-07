@@ -15,7 +15,7 @@
 
 Appointment.create(date: '06/06/2016', time: '1100', reason_for_visit: 'elbow hurts')
 Appointment.create(date: '07/06/2016', time: '1100', reason_for_visit: 'knee hurts')
-User.create(name: "rene1",phone_number:'1234567890', email:'2ndminniona@gmail.com', password:'rene1')
+User.create(name: "rene1",phone_number:'1234567890', email:'2ndminniona@gmail.com', password_digest:'rene1')
 Timeslot.create(week_day:1, hour:'0900')
 Timeslot.create(week_day:1, hour:'1000')
 Timeslot.create(week_day:1, hour:'1100')

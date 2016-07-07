@@ -6,7 +6,6 @@ class Timeslot < ActiveRecord::Base
     friendly_id :hour, use: :slugged
 
   def self.confirm(params)
-    @timeslot = Timeslot.find_by_id(params[:id])
-    @timeslot.try(:authenticate, params[:hour])
+    @timeslot = Timeslot.find_by_id(params[:timeslot_id])
   end
 end

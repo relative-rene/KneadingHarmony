@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160601024640) do
     t.integer  "timeslot_id"
     t.string   "date"
     t.string   "time"
+    t.string   "slug"
     t.string   "reason_for_visit"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false

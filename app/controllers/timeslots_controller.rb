@@ -1,8 +1,8 @@
 class TimeslotsController < ApplicationController
-  
+
   def index
     @timeslot = Timeslot.all
-    @user = User.find_by_id([:id])
+    @user = User.find_by_id(params[:id])
     render :index
   end
 
@@ -20,6 +20,7 @@ class TimeslotsController < ApplicationController
 
   def create
     @timeslot = Timeslot.new(timeslot_params)
+    @timeslot.user_id = current_user.id
     @user = User.find_by_id(params[:id])
     if @timeslot.save
       flash[:notice] = "You've added another time slot"
