@@ -4,14 +4,8 @@ class AppointmentsController < ApplicationController
    def new
      @user = User.find_by_id(params[:id])
      @appointment = Appointment.new
+     render :new
    end
-
-   def show
-     @user = User.find_by_id(params[:id])
-     @appointment = @user.appointment
-     render :show
-   end
-
 
    def edit
      @appointment = Appointment.find_by_id(params[:id])
@@ -21,7 +15,7 @@ class AppointmentsController < ApplicationController
    def create
       @appointment = Appointment.new(appointment_params)
       @appointment.date = Date.strptime(appointment_params[:date], "%m/%d/%Y")
-      @timeslot = Timeslot.find_by_slug(params[:id])
+      @timeslot = Timeslot.find_by_id(params[:id])
       @timeslot.appointments << @appointment
       @user.appointments << @appointment
       @user.save
@@ -75,7 +69,7 @@ class AppointmentsController < ApplicationController
    end
 
    def appointment_params
-     params.require(:appointment).permit(:date, :time, :reason_for_visit)
+     params.require(:appointment).permit(:date, :time, :reason_for_visit, :slug)
    end
 
 end

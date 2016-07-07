@@ -8,9 +8,9 @@
           <div class="inner"><%= button_to "Attend", new_appointment_path(@timeslot), :method => "get", class: "btn btn-small btn-primary" %></div>
         <% end %>
       </div>
-        <h3> You have an available timeslot at: <%= @timeslot.hour%></h3>
+        <h3> You have an available timeslot at: <%= @timeslot %></h3>
         <hr>
-        <h3>The session is for the <strong><%= @timeslot.week_day%></strong> day of the week</h3>
+        <h3>The session is for the <strong><%= @timeslot %></strong> day of the week</h3>
         <hr>
 
     </div>

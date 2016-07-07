@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   #Appointment
   get '/users/:id/appointments/new', to: "appointments#new", as: "new_appointment"
   post '/users/:id/appointments/create', to: "appointments#create", as: "create_appointment"
-  get '/users/:id/appointments/:id', to: "appointments#show", as: "appointment"
   get '/appointments/:id/edit', to: "appointments#edit", as: "edit_appointment"
   patch '/appointments/:id', to: "appointments#update"
   delete '/timeslots/:timeslot_id/appointments/:appointment_id', to: "appointments#destroy", as: "delete_appointment"

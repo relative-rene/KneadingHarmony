@@ -6,5 +6,5 @@ class Appointment < ActiveRecord::Base
   extend FriendlyId
     friendly_id :user_id, use: :slugged
 
-    
+
 end
