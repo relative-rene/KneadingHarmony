@@ -1,10 +1,11 @@
-<br>
-<br>
+<hr>
+
 <%= simple_form_for @user do |f| %>
     <%= f.input :name, placeholder: "Name" %>
     <%= f.input :email, placeholder: "email@email.com" %>
     <%= f.input :phone_number, placeholder: "333-333-4444" %>
-    <%= f.input :password_digest, label: 'Password', placeholder: "something memorable" %>
+    <%= f.input :password, placeholder: "something memorable" %>
+    <%= f.input :password_confirmation, placeholder: "Confirm Password", required: true %>
     <%= f.input :admin %>
     <%= f.button :submit %>
 <% end %>

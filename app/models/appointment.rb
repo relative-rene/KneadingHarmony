@@ -1,6 +1,6 @@
 class Appointment < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :timeslot
+  belongs_to :users
+  belongs_to :timeslots
   attr_accessor :date, :time
 
   extend FriendlyId

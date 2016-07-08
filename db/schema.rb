@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160601024640) do
   end
 
   create_table "timeslots", force: :cascade do |t|
-    t.string   "week_day"
+    t.integer  "week_day"
     t.string   "hour"
     t.string   "slug"
     t.integer  "user_id"

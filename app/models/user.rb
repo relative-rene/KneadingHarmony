@@ -1,15 +1,15 @@
 class User < ActiveRecord::Base
-  # include validations once mvc is setup
-  # validates :email, :password_digest, presence: true, uniqueness:true
-  # validates_confirmation_of :password_digest
-
-  has_many :appointments
-  has_many :timeslots, through: :appointments
-  attr_accessor :user, :name, :email, :phone_number, :admin
+  validates :email, :password, length:{maximum:40}, presence:true, confirmation:true
+  validates :email, uniqueness:true
+  validates_confirmation_of :password
+  has_secure_password
+  has_many :attendances
+  has_many :events, through: :attendances
+  has_many :comments, dependent: :destroy
 
   def self.confirm(params)
     @user = User.find_by({email: params[:email]})
-    @user.try(:authenticate, params[:password_digest])
+    @user.try(:authenticate, params[:password])
   end
 
 end
