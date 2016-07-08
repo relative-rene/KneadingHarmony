@@ -7,10 +7,7 @@ class TimeslotsController < ApplicationController
   end
 
   def show
-    @timeslot = Timeslot.find_by_id(params[:id])
-    @appointment = Appointment.all
-    @user = User.find_by_id(params[:id])
-    render :show
+    @timeslot = Timeslot.find_by_slug(params[:id])
   end
 
   def new
