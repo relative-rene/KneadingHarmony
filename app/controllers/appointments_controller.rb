@@ -13,17 +13,16 @@ class AppointmentsController < ApplicationController
    end
 
    def create
-      @appointment = Appointment.new(appointment_params)
-      @appointment.date = Date.strptime(appointment_params[:date], "%m/%d/%Y")
-      @timeslot = Timeslot.find_by_id(params[:id])
-      @timeslot.appointments << @appointment
-      @user.appointments << @appointment
-      @user.save
-      @appointment.save
-      @timeslot.save
-
-      send_email(@appointment.user.email)
-      redirect_to user_path(@appointment.user)
+     @appointment = Appointment.new(appointment_params)
+     @appointment.user_id = current_user.id
+     @user = User.find_by_id(params[:id])
+     if @appointment.save
+       flash[:notice] = "We look forward to seeing you"
+       redirect_to users_path
+     else
+       flash[:error] = "Please fill in all fields marked with *"
+       redirect_to new_appointment_path
+     end
    end
 
    def update
@@ -63,10 +62,6 @@ class AppointmentsController < ApplicationController
    end
 
    private
-
-   def set_user
-     @user = @appointment.user_id
-   end
 
    def appointment_params
      params.require(:appointment).permit(:date, :time, :reason_for_visit, :slug)

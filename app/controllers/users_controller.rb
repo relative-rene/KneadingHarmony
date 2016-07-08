@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_action :set_user, only:[]
   def index
     render :index
   end
@@ -22,9 +22,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    user_id = User.find_by_id(params[:id])
+    @appointment = Appointment.all
+    @user = @appointment.where(id:user_id)
     if @user == current_user
-      render :show
+    render :show
     else
       redirect_to users_path
     end
@@ -64,5 +66,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :admin, :password, :phone_number,  :password_confirmation)
   end
-
 end
