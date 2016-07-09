@@ -14,9 +14,9 @@ class AppointmentsController < ApplicationController
 
    def create
      @appointment = Appointment.new(appointment_params)
-     @appointment.user_id = current_user.id
-     @user = User.find_by_id(params[:id])
-     if @appointment.save
+     @user = current_user
+     @user.appointments << @appointment
+     if @appointment.save && @user.save
        flash[:notice] = "We look forward to seeing you"
        redirect_to users_path
      else
@@ -64,7 +64,7 @@ class AppointmentsController < ApplicationController
    private
 
    def appointment_params
-     params.require(:appointment).permit(:date, :time, :reason_for_visit, :slug)
+     params.require(:appointment).permit(:date, :time, :reason_for_visit, users_attributes: [:id, :name, :email, :admin, :password, :phone_number,  :password_confirmation])
    end
 
 end
