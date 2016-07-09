@@ -7,12 +7,10 @@
 <!-- ******* User Information Start ******** -->
   <div class="infos">
     <div class="col-xs-12 col-lg-5">
-      <hr>
       <%= simple_form_for @appointment, url: create_appointment_path(@user), as:'new_appointment' do |f| %>
-        <%= f.input :user, label: 'name' %>
-        <%= f.input :timeslot, label: "Day of week" %>
-        <%= f.input :timeslot, label:"Hour", collection: Timeslot.order(:hour), prompt: "Choose time" %>
-        <%= f.input :reason_for_visit, label: "Services requesting" %>
+        <%= f.input :time, label:"Time", placeholder: "4:15pm" %>
+        <%= f.input :date, label:"Day", placeholder: "mm/dd/yy" %>
+        <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue" %>
         <%= f.button :submit %>
       <% end %>
     </div>
