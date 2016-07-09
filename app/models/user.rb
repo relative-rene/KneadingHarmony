@@ -3,9 +3,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness:true
   validates_confirmation_of :password
   has_secure_password
-  has_many :attendances
-  has_many :events, through: :attendances
-  has_many :comments, dependent: :destroy
+  has_many :appointments
+  has_many :timeslots, through: :appointments
 
   def self.confirm(params)
     @user = User.find_by({email: params[:email]})
