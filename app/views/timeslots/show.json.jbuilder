@@ -1,1 +1,1 @@
-json.extract! @timeslot, :id, :work_day, :hour, :admin, :created_at, :updated_at
+json.extract! @timeslot, :id, :week_day, :hour, :created_at, :updated_at
