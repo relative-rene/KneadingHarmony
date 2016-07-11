@@ -1,7 +1,6 @@
 class Timeslot < ActiveRecord::Base
   has_one :appointment
-    attr_accessor :week_day, :hour
-
+  
   extend FriendlyId
     friendly_id :hour, use: :slugged
 
