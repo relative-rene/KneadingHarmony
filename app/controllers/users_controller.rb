@@ -22,9 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    user_id = User.find_by_id(params[:id])
-    @appointment = Appointment.all
-    @user = @appointment.where(id:user_id)
+    @user = User.find_by_id(params[:id])
     if @user == current_user
     render :show
     else
