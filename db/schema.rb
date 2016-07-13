@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160601024640) do
     t.integer  "timeslot_id"
     t.string   "date"
     t.string   "time"
+    t.string   "slug"
     t.string   "reason_for_visit"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 20160601024640) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.string   "phone_number"
     t.integer  "admin"
     t.datetime "created_at",      null: false
