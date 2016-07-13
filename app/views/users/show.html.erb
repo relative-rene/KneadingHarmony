@@ -30,7 +30,7 @@
       <% end %>
       <% else %>
       <% @user.appointments.each do |t|%>
-        <h3><%=link_to "#{t.user_id}", appointment_path(t)%></h3>
+        <h3><%=link_to "#{t.user_id}", user_path(t)%></h3>
         <p><%= "#{t.date}" %></p>
         <p>Time Slot:<%= "#{t.time}" %></p>
         <hr>

@@ -7,10 +7,10 @@
 
 <!-- ******* User Information Start ******** -->
   <div class="row">
-      <%= simple_form_for @appointment, url: create_appointment_path(@user), as:'appointment' do |f| %>
-        <%= f.input :time, label:"Time", placeholder: "4:15pm", class: 'form-control' %>
-        <%= f.input :date, label:"Date", placeholder: "mm/dd/yy", class: 'form-control' %>
-        <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue", class: 'form-control' %>
+      <%= simple_form_for @appointment, url: create_appointment_path do |f| %>
+        <%= f.input :time, label:"Time", placeholder: "4:15pm" %>
+        <%= f.input :date, label:"Date", placeholder: "mm/dd/yy" %>
+        <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue" %>
         <%= f.button :submit %>
       <% end %>
     </div>

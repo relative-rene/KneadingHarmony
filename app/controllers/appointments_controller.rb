@@ -1,8 +1,8 @@
 class AppointmentsController < ApplicationController
-  before_action :appointment_params, only: [:update, :create]
+
   def new
-    @user = User.find_by_id(params[:id])
     @appointment = Appointment.new
+    @user = User.find_by(params[:user_id])
     render :new
   end
 
@@ -12,11 +12,17 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.new(appointment_params)
-    @user = current_user
-    @user.appointments << @appointment
-    @user.save
-    @appointment.save
+    if current_user
+      @appointment = Appointment.new(appointment_params)
+      @user = User.find_by(params[:user_id])
+      if @appointment.save
+        @current_user.appointments << @appointment
+        @current_user.save
+        @appointment.save
+        flash[:notice] = "Your appointment has been booked, please call for lateness or 24 hour cancellations"
+        redirect_to @user
+      end
+    end
   end
 
   def update
@@ -58,6 +64,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:date, :time, :reason_for_visit)
+    params.require(:appointment).permit(:user_id, :timeslot_id, :date, :time, :reason_for_visit)
   end
 end
