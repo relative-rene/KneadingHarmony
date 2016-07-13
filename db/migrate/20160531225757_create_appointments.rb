@@ -5,7 +5,6 @@ class CreateAppointments < ActiveRecord::Migration
       t.integer :timeslot_id
       t.string :date
       t.string :time
-      t.string :slug
       t.string :reason_for_visit
 
       t.timestamps null: false
