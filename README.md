@@ -2,7 +2,7 @@ Kneading Harmony app
 by Rene Arellano
 
 An appointment app, where client/admin can display availability.  Interested parties can create an account, check availability and schedule sessions.
-file:///Users/rarellano/Desktop/Screen%20Shot%202016-07-13%20at%205.14.15%20PM.png
+![Alt text] (file:///Users/rarellano/Desktop/Screen%20Shot%202016-07-13%20at%205.14.15%20PM.png)
 
 ### Technologies
 - Ruby on Rails
@@ -11,8 +11,8 @@ file:///Users/rarellano/Desktop/Screen%20Shot%202016-07-13%20at%205.14.15%20PM.p
 - Sass
 
 ### Necessary Gems
-gem "simple_form"
-gem 'jbuilder', '~> 2.0'
+- gem "simple_form"
+- gem 'jbuilder', '~> 2.0'
 
 ### User Stories
 - Splash page has jumbotron, user attention brought to login/signup
@@ -25,13 +25,13 @@ gem 'jbuilder', '~> 2.0'
 
 ### Entity Relationship Model
 - Model User has_many appointments, timeslots
-- Model appointments belongs_to users, timeslots
+- Model Appointments belongs_to users, timeslots
 - Model Timeslot has_one appointment
 
-Purpose:
+##### Purpose:
 I created this app to dabble with calenders, basic authorization and nested models.  On diff branches I created a calender, used datePicker gem and ended up prefering simple_form gem.
 
-Future development
+##Future development
 - I will refactor timeslots to a single form where admin can check boxes to set availability.
 - Appointment scheduling should reflect avaible timeslots.
 - I will add payment method with Stripe
