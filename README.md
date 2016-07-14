@@ -2,7 +2,8 @@ Kneading Harmony app
 by Rene Arellano
 
 An appointment app, where client/admin can display availability.  Interested parties can create an account, check availability and schedule sessions.
-![Alt text] (file:///Users/rarellano/Desktop/Screen%20Shot%202016-07-13%20at%205.14.15%20PM.png)
+<img width="1005" alt="screen shot 2016-07-13 at 5 14 15 pm" src="https://cloud.githubusercontent.com/assets/12709735/16824692/ae4eea7e-4922-11e6-852e-e2de1ee49e2a.png">
+
 
 ### Technologies
 - Ruby on Rails
