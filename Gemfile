@@ -34,6 +34,7 @@ gem "binding_of_caller"
 # Use Unicorn as the app server
 # gem 'unicorn'
 group :development, :test do
+  gem 'pg'
   gem 'sqlite3'
 end
 
