@@ -5,10 +5,15 @@ body {
   line-height: 18px;
 }
 
-p, ol, ul, td {
+p, ol, ul, td, {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  color: #EEBC20;
+}
+
+a {
+  color: #EEBC20;
 }
 
 pre {
@@ -54,7 +59,5 @@ div {
     font-size: 12px;
     list-style: square;
   }
-  // #accordian {
-  //   background-color: #9C964F;
-  // }
+
 }
