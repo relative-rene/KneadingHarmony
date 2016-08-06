@@ -9,10 +9,8 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
- *= require bootstrap-datepicker
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 @import "bootstrap-sprockets"
 @import "bootstrap"
@@ -20,6 +18,13 @@
 body
   padding-top: 50px
   padding-bottom: 50px
+  background-color: #b8a494
+
+.panel-collapse
+  background-color: #ebaa76
+  
+.panel-heading
+  background-color: #94B894
 
 .display-3
   color: #3a3a3a
@@ -27,9 +32,10 @@ body
 
 .jumbotron
   height: 600px
-  background-image: url(image-path("abstract_yinYang.jpg"))
+  background-image: url(image-path("waterfall.jpg"))
   background-size: cover
   background-position: center
+  z-index: -5
 
 .container-welcome
   position: absolute
@@ -55,6 +61,8 @@ body
   padding: 5px 20px
   margin-top: 20px
 
+.container
+  background-color: #94B894
 
 .glyphicon
   float: right

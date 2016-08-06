@@ -1,4 +1,4 @@
-Kneading Harmony app
+##Kneading Harmony app
 by Rene Arellano
 
 An appointment app, where client/admin can display availability.  Interested parties can create an account, check availability and schedule sessions.
