@@ -1,12 +1,13 @@
 <div class="jumbotron">
   <div class="container-welcome">
-    <p>Welcome to,</p><h1 class="display-3">Kneading Harmony!</h1> <p>Planning your appointments just got easier</p>
-    <p></p>
-    <p class="lead">
-      <% if current_user %>
-        <%= button_to "Create timeslot!", new_timeslot_path, :method => "get", class: "btn btn-lg btn-success" %>
-      <% else %>
-        <%= button_to "Sign Up!", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
-      <% end %>
-    </p>
-  </div>
+      <p>Welcome to,</p><h1 class="display-3">Kneading Harmony!</h1> <p>Planning your appointments just got easier</p>
+      <p></p>
+      <p class="lead">
+        <% if current_user %>
+          <%= button_to "Create timeslot!", new_timeslot_path, :method => "get", class: "btn btn-lg btn-success" %>
+        <% else %>
+          <%= button_to "Sign Up!", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
+        <% end %>
+      </p>
+    </div>
+</div>
