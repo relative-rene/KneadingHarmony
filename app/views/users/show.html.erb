@@ -1,9 +1,12 @@
+<br>
+<br>
+
 <div class="container user-container">
-<hr>
+<br>
   <div class="row">
     <div class="col-md-4">
       <h3>Welcome, <%= @user.name %></h3>
-        <hr>
+        <br>
       <table class="table table-striped">
         <tbody>
           <tr>
@@ -24,7 +27,7 @@
     </div>
     <div class="col-md-8">
       <h3>Appointments</h3>
-      <hr>
+      <br>
       <% if @user.appointments.empty? %>
         <p>You do not have any scheduled appointments</p>
       <% end %>
@@ -33,7 +36,7 @@
         <h3><%=link_to "#{t.user_id}", user_path(t)%></h3>
         <p><%= "#{t.date}" %></p>
         <p>Time Slot:<%= "#{t.time}" %></p>
-        <hr>
+        <br>
       <%end%>
     </div>
   </div>
