@@ -7,18 +7,17 @@ class TimeslotsController < ApplicationController
   end
 
   def show
-    @timeslot = Timeslot.find_by_slug(params[:id])
+    @timeslot = Timeslot.find_by_id(params[:id])
+    render :show
   end
 
   def new
     @timeslot = Timeslot.new
-    @user = User.find_by_id(params[:id])
+    render :new
   end
 
   def create
     @timeslot = Timeslot.new(timeslot_params)
-    @timeslot.user_id = current_user.id
-    @user = User.find_by_id(params[:id])
     if @timeslot.save
       flash[:notice] = "You've added another time slot"
       redirect_to timeslot_path(@timeslot)
@@ -29,13 +28,13 @@ class TimeslotsController < ApplicationController
   end
 
   def edit
-    @timeslot = Timeslot.find_by_slug(params[:id])
+    @timeslot = Timeslot.find_by_id(params[:id])
     @user = User.find_by_id(params[:id])
     render :edit
   end
 
   def update
-    @timeslot = Timeslot.find_by_slug(params[:id])
+    @timeslot = Timeslot.find_by_id(params[:id])
     if @timeslot.update(timeslot_params)
       redirect_to timeslot_path(@timeslot)
     else
@@ -45,7 +44,7 @@ class TimeslotsController < ApplicationController
   end
 
   def destroy
-    @timeslot = Timeslot.find_by_slug(params[:id])
+    @timeslot = Timeslot.find_by_id(params[:id])
     @timeslot.destroy
     redirect_to timeslots_path
   end
@@ -53,6 +52,6 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:hour, :week_day, :slug)
+    params.require(:timeslot).permit(:id, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :time)
   end
 end

@@ -10,7 +10,8 @@
 <!-- ******* User Information Start ******** -->
   <div class="row">
       <%= simple_form_for @appointment, url: create_appointment_path do |f| %>
-        <%= f.input :time, label:"Time", placeholder: "4:15pm" %>
+        <%= f.input :time, label:"Time", placeholder: "4:15pm", as: :check_boxes,
+          collection: [900,915,930,945,1000,1015,1030,1045,1100,1115,1130,1145,1200,1215,1230,1245,100,115,130,145,200,215,230,245,300,315,330,345,400,415,430,445,500,515,530,545,600,615,630,645,700,715,730,745,800,815,830]%>
         <%= f.input :date, label:"Date", placeholder: "mm/dd/yy" %>
         <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue" %>
         <%= f.button :submit %>

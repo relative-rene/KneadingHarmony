@@ -1,11 +1,15 @@
 class CreateTimeslots < ActiveRecord::Migration
   def change
     create_table :timeslots do |t|
-      t.integer :week_day
-      t.string :hour
-      t.string :slug
-      t.integer :user_id
-
+      t.string :day
+      t.string :monday
+      t.string :tuesday
+      t.string :wednesday
+      t.string :thursday
+      t.string :friday
+      t.string :saturday
+      t.string :sunday
+      t.boolean :time
       t.timestamps null: false
     end
   end

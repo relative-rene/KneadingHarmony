@@ -27,10 +27,15 @@ ActiveRecord::Schema.define(version: 20160601024640) do
   end
 
   create_table "timeslots", force: :cascade do |t|
-    t.integer  "week_day"
-    t.string   "hour"
-    t.string   "slug"
-    t.integer  "user_id"
+    t.string   "day"
+    t.string   "monday"
+    t.string   "tuesday"
+    t.string   "wednesday"
+    t.string   "thursday"
+    t.string   "friday"
+    t.string   "saturday"
+    t.string   "sunday"
+    t.boolean  "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

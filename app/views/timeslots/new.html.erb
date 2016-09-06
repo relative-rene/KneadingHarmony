@@ -6,8 +6,22 @@
   <br>
   <div class="row">
     <div class="col-md-8">
-      <%= render "form" %>
-    </div>
+      <%= simple_form_for @timeslot, url: create_timeslot_path, as: 'timeslot' do |f| %>
+        <%= f.error_notification %>
+        <%= f.hidden_field :monday, as: :radio_buttons, collection: [900,915,930,945,1000,1015,1030,1045,1100,1115,1130,1145,1200,1215,1230,1245,100,115,130,145,200,215,230,245,300,315,330,345,400,415,430,445,500,515,530,545,600,615,630,645,700,715,730,745,800,815,830 ]%>
+        <%= f.input :tuesday, as: :radio_buttons %>
+        <%= f.input :wednesday, as: :radio_buttons %>
+        <%= f.input :thursday, as: :radio_buttons %>
+        <%= f.input :friday, as: :radio_buttons %>
+        <%= f.input :saturday, as: :radio_buttons %>
+        f.collection_radio_buttons :options, [[true, 'Yes'] ,[false, 'No']], :first, :last
 
+        <%= f.input :time, as: :check_boxes,
+          collection: [900,915,930,945,1000,1015,1030,1045,1100,1115,1130,1145,1200,1215,1230,1245,100,115,130,145,200,215,230,245,300,315,330,345,400,415,430,445,500,515,530,545,600,615,630,645,700,715,730,745,800,815,830 ]%>
+        <%= f.input :time, as: :radio_buttons,
+          collection: ["am","pm"] %>
+          <%= f.button :submit %>
+      <% end %>
+    </div>
   </div>
 </div>
