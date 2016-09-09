@@ -1,5 +1,5 @@
-<div class="jumbotron">
-  <div class="container-welcome">
+  <div class="jumbotron">
+    <div class="container-welcome">
       <p>Welcome to,</p><h1 class="display-3">Kneading Harmony!</h1> <p>Planning your appointments just got easier</p>
       <p></p>
       <p class="lead">
@@ -10,4 +10,56 @@
         <% end %>
       </p>
     </div>
+  </div>
+  <div class="alert alert-info text-center inline" role="alert">
+    Welcome to the easiest booking experience of your life<a href="" class="alert-link"> See what you like, click it and confirm. </a> .
+  </div>
+
+  <main class="main home-sections">
+    <section id="carousel-testimonials" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-testimonials" data-slide-to="1"></li>
+    <li data-target="#carousel-testimonials" data-slide-to="2"></li>
+    <li data-target="#carousel-testimonials" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag "writing.jpeg", alt:"testimonial"%>
+      <div class="carousel-caption">
+          <p>The best experience ever. </p>
+          <cite>Sam Smith – From that one song</cite>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag "writing1.jpeg", alt:"testimonial"%>
+      <div class= "carousel-caption">
+          <p>Doctor said I need a backiotomy, I didn't know what to do until I found this site I can easily see his availability and check in with questions or appointments.  </p>
+          <cite>Sir Smoke-alot - Half-Baked </cite>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag "writing2.jpeg", alt:"testimonial" %>
+      <div class= "carousel-caption">
+          <p>Becareful Jason is really addicting </p>
+          <cite> Linsey Lohan– Rehab tour</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-testimonials" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-testimonials" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
+
+</section>
+</main>
