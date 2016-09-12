@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>AppointmentProject03</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
-    <%= stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", media: "all" %>
-    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js", media: "all" %>
-    <%= javascript_include_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", media: "all" %>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
-    <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <title>AppointmentProject03</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
+        <%= stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", media: "all" %>
+        <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js", media: "all" %>
+        <%= javascript_include_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", media: "all" %>
+        <%= javascript_include_tag "https://use.fontawesome.com/5a4b36fd61.js",media:"all" %>
+        <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "reload" %>
+        <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
 
-  <!-- navbar helper -->
-  <%= render "shared/navbar" %>
+        <!-- navbar helper -->
+        <%= render "shared/navbar" %>
 
-  <!-- Flash Message -->
-  <% flash.each do |type, message| %>
-    <div class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <%= message %>
-    </div>
-  <% end %>
+        <!-- Flash Message -->
+        <% flash.each do |type, message| %>
+        <div class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <%= message %>
+        </div>
+        <% end %>
 
+        <!-- Pages render in here -->
+        <%= yield %>
+        <!-- End page render -->
 
-  <!-- Pages render in here -->
-  <%= yield %>
-  <!-- End page render -->
+        <!-- footer helper -->
+        <%= render "shared/footer" %>
 
-  <!-- footer helper -->
-  <%= render "shared/footer" %>
-
-
-</body>
+    </body>
 </html>

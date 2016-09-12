@@ -11,38 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601024640) do
+ActiveRecord::Schema.define(version: 20_160_601_024_640) do
+    # These are extensions that must be enabled in order to support this database
+    enable_extension 'plpgsql'
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+    create_table 'appointments', force: :cascade do |t|
+        t.integer 'user_id'
+        t.integer 'timeslot_id'
+        t.string 'date'
+        t.string 'time'
+        t.string 'reason_for_visit'
+        t.datetime 'created_at',       null: false
+        t.datetime 'updated_at',       null: false
+    end
 
-  create_table "appointments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "timeslot_id"
-    t.string   "date"
-    t.string   "time"
-    t.string   "reason_for_visit"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
+    create_table 'timeslots', force: :cascade do |t|
+        t.integer 'week_day'
+        t.string 'hour'
+        t.string 'slug'
+        t.integer 'user_id'
+        t.datetime 'created_at', null: false
+        t.datetime 'updated_at', null: false
+    end
 
-  create_table "timeslots", force: :cascade do |t|
-    t.integer  "week_day"
-    t.string   "hour"
-    t.string   "slug"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "phone_number"
-    t.integer  "admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
+    create_table 'users', force: :cascade do |t|
+        t.string 'name'
+        t.string 'email'
+        t.string 'password_digest'
+        t.string 'phone_number'
+        t.integer 'admin'
+        t.datetime 'created_at',      null: false
+        t.datetime 'updated_at',      null: false
+    end
 end
