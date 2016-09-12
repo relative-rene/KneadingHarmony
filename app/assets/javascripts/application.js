@@ -18,11 +18,17 @@
 //= require_tree .
 
 $(document).on('keyup keypress', 'form input[type="text"]', function(e) {
-  if(e.which == 13) {
-    e.prtimeslotDefault();
-    return false;
-  }
-  $('.carousel').carousel({
-  interval: 9000
-})
+    if (e.which == 13) {
+        e.prtimeslotDefault();
+        return false;
+    }
+    $('.carousel').carousel({
+        interval: 9000
+    });
+    $("#more-less-options-button").click(function() {
+        var txt = $("#extra-options").is(':visible') ? 'more options' : 'less options';
+        $("#more-less-options-button").text(txt);
+        $("#extra-options").slideToggle();
+    });
+
 });

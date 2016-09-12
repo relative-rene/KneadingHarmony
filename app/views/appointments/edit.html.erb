@@ -2,20 +2,20 @@
 <br>
 
 <div class="container">
-  <div class="row">
-    <h1>Edit your Appointment</h1>
-    <br>
-    
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-lg-5">
-      <%= simple_form_for @appointment, url: edit_appointment_path(@user), as:'edit_appointment' do |f| %>
-        <%= f.input :time, label:"Time", placeholder: "4:15pm" %>
-        <%= f.input :date, label:"Day", placeholder: "mm/dd/yy" %>
-        <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue" %>
-        <%= f.button :submit %>
-      <% end %>
+    <div class="row">
+        <h1>Edit your Appointment</h1>
+        <br>
+
     </div>
+    <div class="row">
+        <div class="col-xs-12 col-lg-5">
+            <%= simple_form_for @appointment, url: edit_appointment_path(@user), as:'edit_appointment' do |f| %>
+            <%= f.input :time, label:"Time", placeholder: "4:15pm" %>
+            <%= f.input :date, label:"Day", placeholder: "mm/dd/yy" %>
+            <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue" %>
+            <%= f.button :submit %>
+            <% end %>
+        </div>
     </div>
-  </div>
+</div>
 </div>

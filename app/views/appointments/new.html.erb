@@ -2,19 +2,19 @@
 <br>
 
 <div class="container">
-  <div class = "col-md-4">
-  <div class="row">
-    <h1>Create an Appointment</h1>
-  </div>
+    <div class="col-md-4">
+        <div class="row">
+            <h1>Create an Appointment</h1>
+        </div>
 
-<!-- ******* User Information Start ******** -->
-  <div class="row">
-      <%= simple_form_for @appointment, url: create_appointment_path do |f| %>
-        <%= f.input :time, label:"Time", placeholder: "4:15pm" %>
-        <%= f.input :date, label:"Date", placeholder: "mm/dd/yy" %>
-        <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue" %>
-        <%= f.button :submit %>
-      <% end %>
+        <!-- ******* User Information Start ******** -->
+        <div class="row">
+            <%= simple_form_for @appointment, url: create_appointment_path do |f| %>
+            <%= f.input :time, label:"Time", placeholder: "4:15pm" %>
+            <%= f.input :date, label:"Date", placeholder: "mm/dd/yy" %>
+            <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue" %>
+            <%= f.button :submit %>
+            <% end %>
+        </div>
     </div>
-  </div>
 </div>

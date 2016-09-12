@@ -2,27 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.thumbnail
-{
-  position: relative;
-  padding: 0px;
-  margin-bottom: 20px;
+.thumbnail {
+    position: relative;
+    padding: 0;
+    margin-bottom: 20px;
 }
 
-.thumbnail:hover
-{
-  background-color: #5CB85C;
+.thumbnail:hover {
+    background-color: #5CB85C;
 }
 
-.votes
-{
-  font-size: 47px;
-  color: #197BB5;
-  padding: 10px;
-}
-
-.thumbnail img
-{
-  width: 100%;
+.thumbnail img {
+    width: 100%;
 }

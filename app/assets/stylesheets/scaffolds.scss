@@ -1,70 +1,75 @@
-
 body {
-  font-family: Georgia, arial, helvetica, sans-serif;
-  font-size: 1em;
-  line-height: 1.1em;
+    font-family: Georgia, arial, helvetica, sans-serif;
+    font-size: 1em;
+    line-height: 1.6em;
 }
 
-p, ol, ul, td {
-  font-family: Georgia, arial, helvetica, sans-serif;
+ol,
+p,
+td,
+ul {
+    font-family: Georgia, arial, helvetica, sans-serif;
 }
 
-.navbar-default, a {
-  color: #EEBC20;
+.navbar-default,
+a {
+    color: #EEBC20;
 }
 
 pre {
-  padding: 10px;
-  font-size: 11px;
+    padding: 10px;
+    font-size: 11px;
 }
 
 div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
+    &.actions,
+    &.field {
+        margin-bottom: 10px;
+    }
 }
 
 #notice {
-  color: green;
+    color: green;
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+    padding: 2px;
+    background-color: red;
+    display: table;
 }
+
 img {
-  opacity: 50%;
-  margin:0;
+    opacity: 50%;
+    margin: 0;
 }
-img:hover{
-  opacity: 100%;
+
+img:hover {
+    opacity: 100%;
 };
+
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+    width: 450px;
+    border: 2px solid red;
+    padding: 7px 7px 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
 
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-  }
+    h2 {
+        text-align: left;
+        font-weight: bold;
+        padding: 5px 5px 5px 15px;
+        font-size: 12px;
+        margin: -7px -7px 0;
+        background-color: #c00;
+    }
 
+    ul li {
+        font-size: 12px;
+        list-style: square;
+    }
 
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-  .container div {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  }
+    .container div {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
