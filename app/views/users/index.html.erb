@@ -1,12 +1,12 @@
   <div class="jumbotron">
     <div class="container-welcome">
-      <p>Welcome to,</p><h1 class="display-3">Kneading Harmony!</h1> <p>Planning your appointments just got easier</p>
+      <p>Welcome to,</p><h1 class="jHeader">Kneading Harmony!</h1> <p>Planning your appointments just got easier</p>
 
     </div>
   </div>
   <main class="main home-sections">
     <div class="alert alert-info text-center inline" role="alert">
-      <a href=""class="alert-link"> See what you like, click it and confirm. </a> .
+      <a class="alert-link"> See what you like, click it and confirm. </a> .
         <% if current_user %>
           <%= button_to "Schedule an appointment!", new_appointment_path(current_user), :method => "get", class: "btn btn-lg btn-success" %>
         <% else %>
@@ -40,12 +40,18 @@
         <div class="col-md-4">
             <div>
                 <%= image_tag "scenic2.jpg", alt:"Texto Alternativo", class:"img-circle img-thumbnail"%>
+                <% if current_user %>
+                <h2> Welcome back.</h2>
+                <p>  Please click the button if you'd like to review your history and other goodies.</p>
+                <%= link_to "<button>View Profile</button>".html_safe, user_path(current_user) %>
+              <% else %>
                 <h2>Create A free account</h2>
                 <p>
                   This website was created for your convenience. If your looking to talk to a real person, please call the toll free line at the bottom of the page.
                   If you wont settle for mediocre and want us available at your leisure.  Please, create an account and streamline your rest and relaxation.
                 </p>
                 <a href="#" class="btn btn-success lower">See Feature details</a>
+                                  <% end %>
             </div>
         </div>
     </div>
