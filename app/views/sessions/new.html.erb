@@ -10,7 +10,6 @@
             <%= simple_form_for @user, url: sessions_path, as: 'user' do |f| %>
             <%= f.input :email, placeholder: "email@email.com"%>
             <%= f.input :password, label: "Password" %>
-            <%= f.input :remember_me, inline_label: 'Yes, remember me' %>
             <%= f.button :submit, name:"Login", value:"Login" %>
             <% end %>
         </div>

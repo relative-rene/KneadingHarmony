@@ -10,9 +10,10 @@
         <!-- ******* User Information Start ******** -->
         <div class="row">
             <%= simple_form_for @appointment, url: create_appointment_path do |f| %>
-            <%= f.input :time, label:"Time", placeholder: "4:15pm" %>
-            <%= f.input :date, label:"Date", placeholder: "mm/dd/yy" %>
-            <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue" %>
+            <%= f.input :start, as: :time, label:"Time", placeholder: "4:15pm" %>
+            <%= f.input :duration, collection: ['45', '70', '90', '120'] %>
+            <%= f.input :date, as: :date, label:"Date", placeholder: "mm/dd/yy" %>
+            <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue", collection: ["Herbal Massage", "Swedish Massage", "Thai Massage", "Prenatal", "Reflexology", "Sports Massage"] %>
             <%= f.button :submit %>
             <% end %>
         </div>
