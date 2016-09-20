@@ -12,56 +12,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }]})
 #   Mayor.create({name: 'Emanuel', city: cities.first})
+Product.delete_all
+Product.create! id: 1, name: 'Banana', price: 0.49, active: true
+Product.create! id: 2, name: 'Apple', price: 0.29, active: true
+Product.create! id: 3, name: 'Carton of Strawberries', price: 1.99, active: true
 
-Appointment.create(date: '06/06/2016', time: '1100', reason_for_visit: 'elbow hurts')
-Appointment.create(date: '07/06/2016', time: '1100', reason_for_visit: 'knee hurts')
-User.create(name: 'rene1', phone_number: '1234567890', email: '2ndminniona@gmail.com', password: 'rene1')
-Timeslot.create(week_day: 1, hour: '0900')
-Timeslot.create(week_day: 1, hour: '1000')
-Timeslot.create(week_day: 1, hour: '1100')
-Timeslot.create(week_day: 1, hour: '1200')
-Timeslot.create(week_day: 1, hour: '1300')
-Timeslot.create(week_day: 1, hour: '1400')
-Timeslot.create(week_day: 1, hour: '1500')
-Timeslot.create(week_day: 1, hour: '1600')
-Timeslot.create(week_day: 1, hour: '1700')
-
-Timeslot.create(week_day: 2, hour: '0900')
-Timeslot.create(week_day: 2, hour: '1000')
-Timeslot.create(week_day: 2, hour: '1100')
-Timeslot.create(week_day: 2, hour: '1200')
-Timeslot.create(week_day: 2, hour: '1300')
-Timeslot.create(week_day: 2, hour: '1400')
-Timeslot.create(week_day: 2, hour: '1500')
-Timeslot.create(week_day: 2, hour: '1600')
-Timeslot.create(week_day: 2, hour: '1700')
-
-Timeslot.create(week_day: 3, hour: '0900')
-Timeslot.create(week_day: 3, hour: '1000')
-Timeslot.create(week_day: 3, hour: '1100')
-Timeslot.create(week_day: 3, hour: '1200')
-Timeslot.create(week_day: 3, hour: '1300')
-Timeslot.create(week_day: 3, hour: '1400')
-Timeslot.create(week_day: 3, hour: '1500')
-Timeslot.create(week_day: 3, hour: '1600')
-Timeslot.create(week_day: 3, hour: '1700')
-
-Timeslot.create(week_day: 4, hour: '0900')
-Timeslot.create(week_day: 4, hour: '1000')
-Timeslot.create(week_day: 4, hour: '1100')
-Timeslot.create(week_day: 4, hour: '1200')
-Timeslot.create(week_day: 4, hour: '1300')
-Timeslot.create(week_day: 4, hour: '1400')
-Timeslot.create(week_day: 4, hour: '1500')
-Timeslot.create(week_day: 4, hour: '1600')
-Timeslot.create(week_day: 4, hour: '1700')
-
-Timeslot.create(week_day: 5, hour: '0900')
-Timeslot.create(week_day: 5, hour: '1000')
-Timeslot.create(week_day: 5, hour: '1100')
-Timeslot.create(week_day: 5, hour: '1200')
-Timeslot.create(week_day: 5, hour: '1300')
-Timeslot.create(week_day: 5, hour: '1400')
-Timeslot.create(week_day: 5, hour: '1500')
-Timeslot.create(week_day: 5, hour: '1600')
-Timeslot.create(week_day: 5, hour: '1700')
+OrderStatus.delete_all
+OrderStatus.create! id: 1, name: 'In Progress'
+OrderStatus.create! id: 2, name: 'Placed'
+OrderStatus.create! id: 3, name: 'Shipped'
+OrderStatus.create! id: 4, name: 'Cancelled'
