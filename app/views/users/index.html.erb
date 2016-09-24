@@ -1,7 +1,5 @@
   <div class="jumbotron">
-    <div class="container-welcome">
-      <p>Welcome to,</p><h1 class="jHeader">Kneading Harmony!</h1> <p>Planning your appointments just got easier</p>
-
+    <div class="container-welcome"><h1>CONNECT<br>ENJOY<br>PROGRESS</h1>
     </div>
   </div>
   <main class="main home-sections">
@@ -22,7 +20,7 @@
                 <h2>Services</h2>
                 <p> View a complete list of massages and prices.
                 </p>
-                <%= button_to "See Feature details", services_path, :method => "get", class:"btn btn-success lower"%>
+                <%= button_to "See Menu", services_path, :method => "get", class:"btn btn-success lower"%>
             </div>
         </div>
 
@@ -33,7 +31,7 @@
                 <p>You got questions we got answer.  Here is a list of the most frequently asked question.
                   If you do not find what you are looking for, Please feel free to call, we'd love to hear from your.
                 </p>
-                <%= button_to "See Feature details", about_path, :method => "get", class:"btn btn-success lower"%>
+                <%= button_to "FAQ", about_path, :method => "get", class:"btn btn-success lower"%>
             </div>
         </div>
 
@@ -43,7 +41,7 @@
                 <% if current_user %>
                 <h2> Welcome back.</h2>
                 <p>  Please click the button if you'd like to review your history and other goodies.</p>
-                <%= link_to "<button>View Profile</button>".html_safe, user_path(current_user) %>
+                <%= button_to "Profile View", user_path(current_user), :method => "get", class: "btn btn-success"  %>
               <% else %>
                 <h2>Create A free account</h2>
                 <p>
