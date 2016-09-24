@@ -5,43 +5,43 @@
   <div class="row">
       <div class="col-md-4 col-xs-10">
             <%= image_tag "thai.jpeg", size:"300x300", class: "thumbnail"%>
-            <h2>Thai Massage</h2>
-            <p>Duration: 60m 90m 120m
+              <h2 class="text-center">Thai Massage</h2>
+            <p><span class='price'>Duration: 60m 90m 120m</span><br>
               An amazing synthesis of many techniques; leaning pressure, reflexology, energy line work, stretching and yoga. To achieve all of these effects, we use palms, thumbs, feet, elbows, forearms, and knee. To give a yoga massage uniquely different than
                 therapy in any other modality. This system creates a powerful release of stress and tension an increase in vitality and well-being.
-              <% if current_user %>
-                <%= link_to "<button>Schedule Appointment</button>".html_safe, new_appointment_path(current_user) %>
-            <% else %>
-                <%= link_to "<button>Schedule Appointment</button>".html_safe, new_user_path %>
+                <% if current_user %>
+                  <%= button_to "Reserve Relaxation", new_appointment_path(current_user), :method => "get", class: "btn btn-lg btn-success" %>
+                <% else %>
+                  <%= button_to "Checkout Out", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
                 <% end %>
             </p>
         </div>
         <div class="col-md-4 col-xs-10">
             <%= image_tag "stone.jpeg",size:"300x300", class: "thumbnail"%>
-            <h2>Herbal Massage</h2>
-            <p>Duration: 60m 90m 120m
+          <h2 class="text-center">Herbal Massage</h2>
+            <p><span class='price'>Duration: 60m 90m 120m</span><br>
               The hot herbal compress contains numerous herbs lightly bound in fabric which is steamed until warm and firmly rolled. After a full body Thai massage, the hot herbal compress is pressed over the entire body in order to soothe muscle and stimulate
                 the vital organs and senses. Thai herbal massage has many beneficial such as relief muscular aches, pains and tension. It also helps improve and stimulate the lymphatic system and increases blood flow and circulation. The contents of the hot herbal
                 compress are prescribed according to the condition being treated, with some of the most commonly used herbs such as Zedoary (Khamin), Tumeric (Khamin Chan) , Lemongrass (Takhrai), Kaffir lime (Makrut), Camphor tree (Naat), Tamarind (Makham), Plai
                 (Zingiber Cassumar).
                 <% if current_user %>
-                <%= link_to "<button>Schedule Appointment</button>".html_safe, new_appointment_path(current_user) %>
-            <% else %>
-                <%= link_to "<button>Schedule Appointment</button>".html_safe, new_user_path %>
+                  <%= button_to "Reserve Relaxation", new_appointment_path(current_user), :method => "get", class: "btn btn-lg btn-success" %>
+                <% else %>
+                  <%= button_to "Checkout Out", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
                 <% end %>
             </p>
         </div>
         <div class="col-md-4 col-xs-10">
             <%= image_tag "pregnant.jpeg", size:"300x300", class: "thumbnail"%>
-            <h2>Prenatal Massage</h2>
-            <p>Duration: 60m 90m 120m
+              <h2 class="text-center">Prenatal Massage</h2>
+            <p><span class='price'>Duration: 60m 90m 120m</span><br>
               Sciatic nerve pain is experienced by many women in late pregnancy as he uterus rests on muscles of the pelvic floor and lower back. The pressure of the uterus spreads tension to the muscles of the upper and lower legs, causing them to swell and
                 put pressure on nearby nerves. Massage therapy addresses the inflamed nerves by helping to release the tension on nearby muscles. Many women have experienced significant reduction in sciatic nerve pain during pregnancy through regular massage. Other
                 potential benefits of prenatal massage include: reducing back pain, joint pain, muscle tension, headaches, stress, anxiety and promoting blood circulation by improving oxygenation of soft tissues and muscles.
                 <% if current_user %>
-                <%= link_to "<button>Schedule Appointment</button>".html_safe, new_appointment_path(current_user) %>
-            <% else %>
-                <%= link_to "<button>Schedule Appointment</button>".html_safe, new_user_path %>
+                  <%= button_to "Reserve Relaxation", new_appointment_path(current_user), :method => "get", class: "btn btn-lg btn-success" %>
+                <% else %>
+                  <%= button_to "Checkout Out", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
                 <% end %>
             </p>
         </div>
@@ -49,40 +49,41 @@
       <div class="row">
         <div class="col-md-4 col-xs-10">
             <%= image_tag "sweden.jpeg", size:"300x300", class: "thumbnail"%>
-            <h4 class="text-center">Swedish Massage</h4>
-            <p>Duration: 60m 90m 120m Massage involves working and acting on the body with pressure – structured, unstructured, stationary, or moving – tension, motion, or vibration, done manually or with mechanical aids. Massage can be applied
+            <h2 class="text-center">Swedish Massage</h2>
+            <p><span class='price'>Duration: 60m 90m 120m </span><br>
+              Massage involves working and acting on the body with pressure – structured, unstructured, stationary, or moving – tension, motion, or vibration, done manually or with mechanical aids. Massage can be applied
                 with the hands,fingers, elbows, knees, forearm, feet, or a massage device. At clients request, massage can be altered lying on a massage table, sitting in a massage chair, or lying on a mat on the floor"
-                    <% if current_user %>
-                    <%= link_to "<button>Schedule Appointment</button>".html_safe, new_appointment_path(current_user) %>
+                <% if current_user %>
+                  <%= button_to "Reserve Relaxation", new_appointment_path(current_user), :method => "get", class: "btn btn-lg btn-success" %>
                 <% else %>
-                    <%= link_to "<button>Schedule Appointment</button>".html_safe, new_user_path %>
-                    <% end %>
+                  <%= button_to "Checkout Out", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
+                <% end %>
                 </p>
             </div>
             <div class="col-md-4 col-xs-10">
                 <%= image_tag "reflex.jpeg", size:"300x300", class: "thumbnail"%>
-                <h4 class="text-center">Reflexology</h4>
-                <p>
-                    Duration: 60m 90m 120m Myofascial release refers to the manual massage technique for stretching the fascia and releasing bonds between fascia, integument, and muscles with the goal of eliminating pain, increasing range of motion
+                <h2 class="text-center">Reflexology</h2>
+                <p><span class='price'>Duration: 60m 90m 120m </span><br>
+                  Myofascial release refers to the manual massage technique for stretching the fascia and releasing bonds between fascia, integument, and muscles with the goal of eliminating pain, increasing range of motion
                     and equilibrioception. Myofascial release usually involves applying shear compression or tension in various directions, or by skin rolling.
-
                     <% if current_user %>
-                    <%= link_to "<button>Schedule Appointment</button>".html_safe, new_appointment_path(current_user) %>
-                <% else %>
-                    <%= link_to "<button>Schedule Appointment</button>".html_safe, new_user_path %>
+                      <%= button_to "Reserve Relaxation", new_appointment_path(current_user), :method => "get", class: "btn btn-lg btn-success" %>
+                    <% else %>
+                      <%= button_to "Checkout Out", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
                     <% end %>
                 </p>
             </div>
             <div class="col-md-4 col-xs-10">
                 <%= image_tag "athlete.jpeg", size:"300x300", class: "thumbnail"%>
-                <h4 class="text-center">Sports</h4>
+                <h2 class="text-center">Sports</h2>
                 <p>
-                    Duration: 60m 90m 120m Also known as manual therapy, manipulative therapy, or manual & manipulative therapy, this is a physical treatment primarily used on the neuromusculoskeletal system to treat pain and disability. It most
+                    <span class='price'>Duration: 60m 90m 120m </span><br>
+                    Also known as manual therapy, manipulative therapy, or manual & manipulative therapy, this is a physical treatment primarily used on the neuromusculoskeletal system to treat pain and disability. It most
                     commonly includes kneading and manipulation of muscles, joint mobilization and joint manipulation.
                     <% if current_user %>
-                    <%= link_to "<button>Schedule Appointment</button>".html_safe, new_appointment_path(current_user) %>
-                <% else %>
-                    <%= link_to "<button>Schedule Appointment</button>".html_safe, new_user_path %>
+                      <%= button_to "Reserve Relaxation", new_appointment_path(current_user), :method => "get", class: "btn btn-lg btn-success" %>
+                    <% else %>
+                      <%= button_to "Checkout Out", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
                     <% end %>
                 </p>
             </div>
