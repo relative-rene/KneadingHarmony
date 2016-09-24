@@ -1,19 +1,29 @@
+
 body {
-    font-family: Georgia, arial, helvetica, sans-serif;
-    font-size: 1em;
-    line-height: 1.6em;
+  padding-top: 4em;
+  padding-bottom: 2em;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.3em;
+  line-height: 1.6em;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+p
+{
+  font-family: 'EB Garamond', serif;
+
+}
 ol,
-p,
 td,
-ul {
-    font-family: Georgia, arial, helvetica, sans-serif;
-}
-
+a,
 .navbar-default,
-a {
+ {
     color: #EEBC20;
+    font-weight: bold;
 }
 
 pre {
