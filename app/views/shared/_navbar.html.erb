@@ -10,7 +10,7 @@
       </button>
       <%= link_to "Kneading Harmony", users_path, class: "navbar-brand" %>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="sticky-nav">
       <ul class="nav navbar-nav">
         <% if current_user %>
           <li><%= link_to "My Profile", user_path(current_user) %></li>
