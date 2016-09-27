@@ -21,35 +21,31 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
-gem "friendly_id"
+gem 'friendly_id'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry-byebug'
 # Use ActiveModel has_secure_password
-group :development do
-  gem "better_errors"
-end
-gem "binding_of_caller"
+gem 'better_errors'
+gem 'binding_of_caller'
 # Use Unicorn as the app server
 # gem 'unicorn'
 group :development, :test do
-  gem 'pg'
-  gem 'sqlite3'
+    gem 'sqlite3'
 end
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
+gem 'pg'
+gem 'rails_12factor'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
-                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem 'bootstrap-datepicker-rails', require: 'bootstrap-datepicker-rails',
+                                  git: 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+    # Access an IRB console on exception pages or by using <%= console %> in views
+    gem 'web-console', '~> 2.0'
+    # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+    gem 'spring'
 end
