@@ -1,105 +1,108 @@
-  <div class="jumbotron">
-    <div class="container-welcome"><h1>CONNECT<br>ENJOY<br>PROGRESS</h1>
+<div class="jumbotron">
+    <div class="container-welcome">
+        <h1>CONNECT<br>ENJOY<br>PROGRESS</h1>
     </div>
-  </div>
-  <main class="main home-sections">
-    <div class="alert alert-info text-center inline" role="alert">
-      <a class="alert-link">We have some services your going to love.  Quickly view the body work specialities and treat yourself.  
-        Waiting at your beck and call Sure were awesome apart but together... we get more done. </a> .
-        <% if current_user %>
-          <%= button_to "Schedule an appointment!", new_appointment_path(current_user), :method => "get", class: "btn btn-lg btn-success" %>
-        <% else %>
-          <%= button_to "Sign Up!", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
-        <% end %>
-    </div>
+</div>
+<main class="main home-sections">
+    <article class='row'>
+        <div class='col-md-7 col-md-offset-3'>
+            <p id='intro'>We have some services your going to love. At your convenience, view our offerings, schedule appointment or reach out, we'd love to hear from you. Sure were awesome apart but we get more done together.</p>
+        </div>
+    </article>
     <section>
-    <div class="container" id="cnt1">
-      <div class="row feature">
-        <div class="col-md-4 link-card">
-            <div>
-                <%= image_tag "sunrise.jpg", alt: "sunrise", class: "img-circle img-thumbnail" %>
-                <h2>Services</h2>
-                <p> View a complete list of massages and prices.
-                </p>
-                <%= button_to "See Menu", services_path, :method => "get", class:"btn btn-success lower"%>
+        <div class="container" id="cnt1">
+            <div class="row feature">
+                <div class="col-md-4 link-card">
+                    <div>
+                        <%= image_tag "sunrise.jpg", alt: "sunrise", class: "img-circle img-thumbnail" %>
+                        <h2>Services</h2>
+                        <p>
+                            An indepth look at our offerings.  From life changing rehabilitation to serious rest and relaxation. Treat yourself or make a friends day. 
+                        </p>
+                        <%= button_to "See Menu", services_path, :method => "get", class:"btn btn-success lower"%>
+                    </div>
+                </div>
+
+                <div class="col-md-4 link-card">
+                    <div>
+                        <%= image_tag "mountain-river.jpg", alt:"Texto Alternativo", class:"img-circle img-thumbnail" %>
+                        <h2>Frequently Asked Questions</h2>
+                        <p>This website was created for your convenience. Here is a list of the most frequently asked question. If your looking to talk to a real person, please call the toll free line at the bottom of the page.You got questions we got answer.
+                        <%= button_to "FAQ", about_path, :method => "get", class:"btn btn-success lower"%>
+                    </div>
+                </div>
+
+                <div class="col-md-4 link-card">
+                    <div>
+                        <%= image_tag "scenic2.jpg", alt:"Texto Alternativo", class:"img-circle img-thumbnail"%>
+                        <% if current_user %>
+                        <h2>
+                            Welcome back.</h2>
+                        <p>
+                            Please click the button if you'd like to review your history and other goodies.</p>
+                        <%= button_to "Profile View", user_path(current_user), :method => "get", class: "btn btn-success"  %>
+                    <% else %>
+                        <h2>Create A free account</h2>
+                        <p>
+                            If you wont settle for mediocre and want us available at your leisure. Please, create an account and
+                            streamline your rest and relaxation.
+                        </p>
+                        <%= button_to "Join the Fun!", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-4 link-card">
-            <div>
-                <%= image_tag "mountain-river.jpg", alt:"Texto Alternativo", class:"img-circle img-thumbnail" %>
-                <h2>Frequently Asked Questions</h2>
-                <p>You got questions we got answer.  Here is a list of the most frequently asked question.
-                  If you do not find what you are looking for, Please feel free to call, we'd love to hear from your.
-                </p>
-                <%= button_to "FAQ", about_path, :method => "get", class:"btn btn-success lower"%>
+        <section id="carousel-testimonials" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-testimonials" data-slide-to="1"></li>
+                <li data-target="#carousel-testimonials" data-slide-to="2"></li>
+                <li data-target="#carousel-testimonials" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <%= image_tag "writing.jpeg", alt:"testimonial"%>
+                    <div class="carousel-caption">
+                        <p>The best experience ever.
+                        </p>
+                        <cite>Sam Smith – From that one song</cite>
+                    </div>
+                </div>
+                <div class="item">
+                    <%= image_tag "writing1.jpeg", alt:"testimonial"%>
+                    <div class="carousel-caption">
+                        <p>Doctor said I need a backiotomy, I didn't know what to do until I found this site I can easily see his availability and check in with questions or appointments.
+                        </p>
+                        <cite>Sir Smoke-alot - Half-Baked
+                        </cite>
+                    </div>
+                </div>
+                <div class="item">
+                    <%= image_tag "writing2.jpeg", alt:"testimonial" %>
+                    <div class="carousel-caption">
+                        <p>Becareful Jason is really addicting
+                        </p>
+                        <cite>
+                            Linsey Lohan– Rehab tour</cite>
+                    </div>
+                </div>
             </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-testimonials" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-testimonials" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
 
-        <div class="col-md-4 link-card">
-            <div>
-                <%= image_tag "scenic2.jpg", alt:"Texto Alternativo", class:"img-circle img-thumbnail"%>
-                <% if current_user %>
-                <h2> Welcome back.</h2>
-                <p>  Please click the button if you'd like to review your history and other goodies.</p>
-                <%= button_to "Profile View", user_path(current_user), :method => "get", class: "btn btn-success"  %>
-              <% else %>
-                <h2>Create A free account</h2>
-                <p>
-                  This website was created for your convenience. If your looking to talk to a real person, please call the toll free line at the bottom of the page.
-                  If you wont settle for mediocre and want us available at your leisure.  Please, create an account and streamline your rest and relaxation.
-                </p>
-                <%= button_to "Join the Fun!", new_user_path, :method => "get", class: "btn btn-lg btn-success" %>
-              <% end %>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <section id="carousel-testimonials" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-testimonials" data-slide-to="1"></li>
-    <li data-target="#carousel-testimonials" data-slide-to="2"></li>
-    <li data-target="#carousel-testimonials" data-slide-to="3"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <%= image_tag "writing.jpeg", alt:"testimonial"%>
-      <div class="carousel-caption">
-          <p>The best experience ever. </p>
-          <cite>Sam Smith – From that one song</cite>
-      </div>
-    </div>
-    <div class="item">
-      <%= image_tag "writing1.jpeg", alt:"testimonial"%>
-      <div class= "carousel-caption">
-          <p>Doctor said I need a backiotomy, I didn't know what to do until I found this site I can easily see his availability and check in with questions or appointments.  </p>
-          <cite>Sir Smoke-alot - Half-Baked </cite>
-      </div>
-    </div>
-    <div class="item">
-      <%= image_tag "writing2.jpeg", alt:"testimonial" %>
-      <div class= "carousel-caption">
-          <p>Becareful Jason is really addicting </p>
-          <cite> Linsey Lohan– Rehab tour</cite>
-      </div>
-    </div>
-  </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-testimonials" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-testimonials" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-</section>
+    </section>
 </main>

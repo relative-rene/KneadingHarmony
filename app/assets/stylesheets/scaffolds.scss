@@ -23,6 +23,17 @@ a,
     font-weight: bold;
     font-family: 'Bree Serif', serif helvetica  arial;
 }
+#intro {
+  font-family: 'EB Garamond', serif;
+  color: #7FB7BE;
+  position: relative;
+  padding:.2em;
+  text-align: center;
+  left: 0;
+  top: 70%;
+  width: 80%;
+  font-size: 2em;
+}
 
 pre {
     padding: 10px;
@@ -64,6 +75,6 @@ img:hover {
 }
 
 .container div {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: .3em;
+    padding-bottom: .3em;
 }
