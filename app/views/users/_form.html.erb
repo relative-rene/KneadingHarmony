@@ -6,6 +6,6 @@
     <%= f.input :phone_number, placeholder: "333-333-4444" %>
     <%= f.input :password, placeholder: "something memorable" %>
     <%= f.input :password_confirmation, placeholder: "Confirm Password", required: true %>
-    <%= f.input :admin %>
+    <%= f.input :profile_image, as: :file %>
     <%= f.button :submit %>
 <% end %>
