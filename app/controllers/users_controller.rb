@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
+        @user.profile_image = '/default_image.jpeg' if @user.profile_image == ''
         if @user.save
             flash[:notice] = 'Welcome to Kneading Harmony! Your profile has been successfully created!'
             login(@user)
@@ -62,6 +63,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :email, :admin, :password, :phone_number, :password_confirmation, appointment_attributes: [:id, :date, :time, :reason_for_visit])
+        params.require(:user).permit(:name, :email, :profile_image, :admin, :password, :phone_number, :password_confirmation, appointment_attributes: [:id, :date, :time, :reason_for_visit])
     end
 end
