@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        @user.profile_image = '/default_image.jpeg' if @user.profile_image == ''
+        @user.profile_image = 'default_image.jpeg' if @user.profile_image == ''
         if @user.save
             flash[:notice] = 'Welcome to Kneading Harmony! Your profile has been successfully created!'
             login(@user)
