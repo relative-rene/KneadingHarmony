@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'friendly_id'
 gem 'stripe'
-
+gem 'rails_12factor', group: :production
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry-byebug'
@@ -32,13 +32,8 @@ gem 'better_errors'
 gem 'binding_of_caller'
 # Use Unicorn as the app server
 # gem 'unicorn'
-group :development, :test do
-    gem 'sqlite3'
-end
 
 gem 'pg'
-gem 'rails_12factor'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-datepicker-rails', require: 'bootstrap-datepicker-rails',
