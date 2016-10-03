@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/Nerian/bootstrap-datepicker-rails.git
-  revision: 1b0a7189da82daab9ccd96f5f106c4d0ca869d6b
-  specs:
-    bootstrap-datepicker-rails (1.6.1.1)
-      railties (>= 3.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -198,13 +191,12 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
-  bootstrap-datepicker-rails!
   bootstrap-sass (~> 3.3.1)
   coffee-rails (~> 4.1.0)
   friendly_id
   jbuilder (~> 2.0)
   jquery-rails
-  pg
+  pg (~> 0.15)
   pry-byebug
   rails (= 4.2.6)
   rails_12factor
