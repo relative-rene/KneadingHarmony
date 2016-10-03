@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets
+gem 'pg', '~> 0.15'
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -33,12 +35,8 @@ gem 'binding_of_caller'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-gem 'pg'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap-datepicker-rails', require: 'bootstrap-datepicker-rails',
-                                  git: 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
-
 group :development do
     # Access an IRB console on exception pages or by using <%= console %> in views
     gem 'web-console', '~> 2.0'
