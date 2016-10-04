@@ -1,5 +1,9 @@
 class Subscription < ActiveRecord::Base
-    attr_accessor :stripe_card_token
+  belongs_to :plan
+  validates_presence_of :plan_id
+  validates_presence_of :email
+
+  attr_accessor :stripe_card_token
 
     def save_with_payment
         if valid?

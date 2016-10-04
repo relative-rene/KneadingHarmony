@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
     resource :cart, only: [:show]
     resources :order_items, only: [:create, :update, :destroy]
+    resources :subscriptions, only: [:new, :create, :show]
+
 
     get '/products', to: 'products#index', as: 'products'
+
 
     root to: 'users#index'
     # User routes

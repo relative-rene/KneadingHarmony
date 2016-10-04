@@ -1,6 +1,8 @@
-<br>
+$(document).ready(function(){
+
 <% if @order.errors.any? || @order_item.errors.any? %>
-alert("not valid.")
+alert("not valid.");
 <% else %>
-  $(".cart-text").html("<%= escape_javascript(render 'shared/cart_text') %>")
+  $(".cart-text").html("<%= escape_javascript(render(:partial =>'shared/cart_text')).html_safe %>");
 <% end %>
+});

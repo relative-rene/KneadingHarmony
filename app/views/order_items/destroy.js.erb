@@ -1,3 +1,8 @@
-<br>
-$(".cart-text").html("<%= escape_javascript(render 'shared/cart_text') %>")
-$(".shopping-cart").html("<%= escape_javascript(render 'shared/shopping_cart') %>")
+$(document).ready(function(){
+
+console.log('destroy');
+
+$(".cart-text").html("<%= escape_javascript(render(:partial => 'shared/cart_text')).html_safe %>");
+$(".shopping-cart").html("<%= escape_javascript(render(:partial => 'shared/shopping_cart')).html_safe %>");
+
+});
