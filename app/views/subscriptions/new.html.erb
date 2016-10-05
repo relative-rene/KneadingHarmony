@@ -1,4 +1,5 @@
 
+
 <%= form_for @subscription do |f| %>
   <% if @subscription.errors.any? %>
     <div class="error_messages">
@@ -9,9 +10,11 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
-  <%= f.hidden_field :stripe_card_token %>
-  <%= f.hidden_field :plan_id %>
+    <% end %>
+
+  <%= f.hidden_field :order_id %>
+  <%= f.hidden_field :strip_card_token %>
+  
     <div class="field">
       <%= f.label :email %>
       <%= f.text_field :email %>
