@@ -1,13 +1,13 @@
 class SubscriptionsController < ApplicationController
   def new
-    @product = Product.find_by_id(params[:id])
-    @subscription = Subscription.new(params[:subscription])
+    Order.find(session[:order_id])
+    @subscription = Subscription.new
   end
 
   def create
     @subscription = Subscription.new(params[:subscription])
     if @subscription.save_with_payment
-        redirect_to @subscription, notice: 'Thank you for subscribing!'
+        redirect_to @subscription, notice: 'Thank you for your order!'
     else
         render :new
     end

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
     get '/products', to: 'products#index', as: 'products'
 
-
     root to: 'users#index'
     # User routes
     get '/users', to: 'users#index', as: 'users'
