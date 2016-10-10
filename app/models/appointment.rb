@@ -1,4 +1,4 @@
 class Appointment < ActiveRecord::Base
-    belongs_to :users
-    belongs_to :timeslots
+    belongs_to :user
+    belongs_to :timeslot
 end

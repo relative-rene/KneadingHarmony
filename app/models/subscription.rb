@@ -1,6 +1,6 @@
 class Subscription < ActiveRecord::Base
-  belongs_to :product
-  validates_presence_of :product_id
+  belongs_to :order_status
+  validates_presence_of :order_status_id
   validates_presence_of :email
 
   attr_accessor :stripe_card_token

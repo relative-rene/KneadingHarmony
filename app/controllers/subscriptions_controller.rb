@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
   def new
-    Order.find(session[:order_id])
     @subscription = Subscription.new
+    render :new
   end
 
   def create

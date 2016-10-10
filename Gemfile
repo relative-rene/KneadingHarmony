@@ -34,7 +34,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'rails-erd'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development do
