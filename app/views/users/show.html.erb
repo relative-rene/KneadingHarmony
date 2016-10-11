@@ -34,11 +34,11 @@
       <% end %>
       <% else %>
       <% @user.appointments.each do |t|%>
-        <h3><%=link_to "#{t.user_id}", user_path(t)%></h3>
+        <h3><%= "#{t.user_id}" %></h3>
         <p>Your <%= "#{t.duration} " %> appoointment has been scheduled on <%= "#{t.date}" %></p>
          <p>Appointment Starts as<%= "#{t.start}" %></p>
+
         <br>
-        <p>Extending appointments for tardiness will be at the Massuese availability</p>
       <%end%>
     </div>
   </div>
