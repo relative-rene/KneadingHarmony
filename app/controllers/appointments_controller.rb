@@ -18,7 +18,7 @@ class AppointmentsController < ApplicationController
                 @current_user.appointments << @appointment
                 @current_user.save
                 @appointment.save
-                flash[:notice] = 'Your appointment has been booked, please call for lateness or 24 hour cancellations'
+                flash[:notice] = 'Your appointment has been booked, please call 24 hours before cancellations. Extensions because of tardiness will be at the massuese discretion and availability.'
                 redirect_to @user
             end
         end

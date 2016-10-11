@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-    resource :cart, only: [:show]
-    resources :order_items, only: [:create, :update, :destroy]
-    resources :subscriptions, only: [:new, :create, :show]
-
-
-    get '/products', to: 'products#index', as: 'products'
 
     root to: 'users#index'
     # User routes
@@ -31,16 +25,27 @@ Rails.application.routes.draw do
     # Timeslot
     get '/timeslots', to: 'timeslots#index', as: 'timeslots'
     get '/timeslots/new', to: 'timeslots#new', as: 'new_timeslot'
-    post '/timeslots', to: 'timeslots#create', as: 'create_timeslot'
+    post '/timeslots', to: 'timeslots#create'
     get '/timeslots/:id', to: 'timeslots#show', as: 'timeslot'
     get '/timeslots/:id/edit', to: 'timeslots#edit', as: 'edit_timeslot'
     patch '/timeslots/:id', to: 'timeslots#update', as: 'update_timeslot'
     delete '/timeslots/:id', to: 'timeslots#destroy', as: 'delete_timeslot'
 
+    get'/subscriptions/new', to: 'subscriptions#new', as: 'new_subscription'
+    post '/subscriptions', to: 'subscriptions#create'
+    get '/subscriptions', to: 'subscriptions#show', as: 'subscription'
+
+
     # About route
     get '/about', to: 'about#show', as: 'about'
     # Policy route
     get '/policy', to: 'policy#show', as: 'policy'
-    # Services
+    # Services route
     get '/services', to: 'services#index', as: 'services'
+    # Products route
+    get '/products', to: 'products#index', as: 'products'
+    resource :cart, only: [:show]
+    resources :order_items, only: [:create, :update, :destroy]
+
+
 end
