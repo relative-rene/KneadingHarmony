@@ -1,21 +1,16 @@
-<br>
-<br>
-
 <div class="container">
-    <div class="col-md-4">
-        <div class="row">
-            <h1>Create an Appointment</h1>
-        </div>
-
-        <!-- ******* User Information Start ******** -->
-        <div class="row">
-            <%= simple_form_for @appointment, url: create_appointment_path do |f| %>
-            <%= f.input :start, as: :time, label:"Time", placeholder: "4:15pm" %>
-            <%= f.input :duration, collection: ['45', '70', '90', '120'] %>
-            <%= f.input :date, as: :date, label:"Date", placeholder: "mm/dd/yy" %>
-            <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue", collection: ["Herbal Massage", "Swedish Massage", "Thai Massage", "Prenatal", "Reflexology", "Sports Massage"] %>
-            <%= f.button :submit %>
-            <% end %>
-        </div>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="row">
+      <h1 class='align-center'>Create an Appointment</h1>
     </div>
+    <br>
+      <%= simple_form_for @appointment, url: create_appointment_path do |f| %>
+      <%= f.input :start, as: :time, label:"Time", placeholder: "4:15pm" %>
+      <%= f.input :duration, collection: ['45', '70', '90', '120'] %>
+      <%= f.input :date, as: :date, label:"Date", placeholder: "mm/dd/yy" %>
+      <%= f.input :reason_for_visit, label:"Service Requesting", placeholder: "deep tissue", collection: ["Herbal Massage", "Swedish Massage", "Thai Massage", "Prenatal", "Reflexology", "Sports Massage"] %>
+      <%= f.button :submit %>
+      <% end %>
+  </div>
 </div>
+<%= link_to 'Back', users_path %>
